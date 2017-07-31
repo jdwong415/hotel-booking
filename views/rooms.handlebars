@@ -1,10 +1,10 @@
 <h1>All Rooms</h1>
 
 <ul class="list-unstyled">
-  {{#each room}}
+  {{#each rooms}}
   	<li>
-  		<p><span class="label">Room number:</span> {{this.room_number}}</p>
-    	<p><span class="label">Available:</span> {{this.available}}</p>
+  		<p>Room: {{this.id}}</p>
+    	<p>Available: {{this.available}}</p>
 
 		{{!-- Form should send a delete command to the server --}}
 		<form>
