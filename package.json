@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/jdwong415/hotel-booking/issues"
   },
-  "homepage": "https://github.com/jdwong415/hotel-booking#readme"
+  "homepage": "https://github.com/jdwong415/hotel-booking#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.9",
+    "mysql2": "^1.3.6",
+    "sequelize": "^4.4.2"
+  }
 }
