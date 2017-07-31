@@ -20,6 +20,9 @@ app.set("view engine", "handlebars");
 app.use(express.static('public'));
 
 // Load routes
+app.get('/', function(req, res) {
+  res.render('index');
+});
 app.use(require('./controllers/guest_controller'));
 app.use(require('./controllers/manager_controller'));
 app.use(require('./controllers/restaurant_controller'));
