@@ -1,0 +1,20 @@
+{
+  "name": "hotel-booking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdwong415/hotel-booking.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdwong415/hotel-booking/issues"
+  },
+  "homepage": "https://github.com/jdwong415/hotel-booking#readme"
+}
