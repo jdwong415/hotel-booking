@@ -1,0 +1,19 @@
+<h1>All Rooms</h1>
+
+<ul class="list-unstyled">
+  {{#each table}}
+  	<li>
+  		<p><span class="label">Table id:</span> {{this.id}}</p>
+    	<p><span class="label">Booked at </span> {{this.timestamp}}</p>
+      <p><span class="label">Party of </span> {{this.party_number}}</p>
+
+		{{!-- Form should send a delete command to the server --}}
+		<form>
+		<input type="hidden" name="id" value="{{this.id}}">
+		<button type="submit">Delete this table</button>
+		</form>
+
+      <a href="/{{this.id}}">Update this table</a>
+  	</li>
+  {{/each}}
+</ul>
