@@ -1,3 +1,28 @@
+/*Color scheme
+egg blue: #d0e4ef;
+
+grey blue: #D4E7E8;
+creme: #F3F1EA
+beige: #E5E0CC;
+denim: #045675;
+navy: #03122B;
+*/
+
+body{
+	background-color: #D4E7E8;
+}
+
 img{
 	width: 100%;
+}
+
+p{
+	text-align: center;
+}
+
+#header-row{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 15px;
+	background-color: #F3F1EA;
 }
