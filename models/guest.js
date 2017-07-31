@@ -25,8 +25,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Guest.associate = function(models) {
-    Customer.hasOne(models.Room);
-    Customer.hasOne(models.Restaurant);
+    Guest.hasOne(models.Room);
+    Guest.hasOne(models.Restaurant);
   }
 
   return Guest;

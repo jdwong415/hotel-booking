@@ -1,6 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Table = sequelize.define("Table", {
     timestamp: {
+      type: DataTypes.DATE,
       allowNull: false 
     },
     party_number: {
