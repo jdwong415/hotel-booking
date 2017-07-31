@@ -21,6 +21,10 @@ module.exports = function(sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    room_number: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   });
 
