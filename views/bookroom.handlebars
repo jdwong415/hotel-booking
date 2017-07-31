@@ -1,0 +1,38 @@
+<h1>Book a Room</h1>
+
+<form class="form-inline">
+
+  <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
+  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+    <option selected>Choose...</option>
+    {{#each room}}
+      {{if this.available}}
+        <option value="""{{this.room_number}}""">{{this.room_number}}</option>
+      {{/if}}
+    {{/each}}
+  </select>
+
+  <label class="sr-only" for="inlineFormInput"></label>
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstName" placeholder="First Name">
+
+  <label class="sr-only" for="inlineFormInput"></label>
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="lastName" placeholder="Last Name">
+
+  <label class="sr-only" for="inlineFormInput"></label>
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="phoneNum" placeholder="Phone Number">
+
+  <label class="sr-only" for="inlineFormInput"></label>
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" placeholder="name@domain.com">
+
+  <form action="/?_method=PUT" method="POST">
+    <button type="submit" id="book-room">Book</button>
+  </form>
+
+</form>
+
+
+<div>
+    <form action="/" method="GET">
+      <button type="submit" id="go-back">Back to Home</button>
+    </form>
+</div>
