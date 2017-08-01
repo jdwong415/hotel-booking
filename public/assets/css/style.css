@@ -12,8 +12,8 @@ navy: #03122B;
 font-family: 'Fjalla One', sans-serif;
 font-family: 'Lato', sans-serif;*/
 
-body {
-	background-color: #D4E7E8;
+body{
+	background-color: #F3F1EA;
 }
 
 img {
@@ -36,18 +36,48 @@ h3 {
 	font-size: 30px;
 }
 
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: #F3F1EA;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #D4E7E8;
+    box-shadow: none;
+}
+
+.btn-lg.round {
+	border-radius: 24px;
+}
+
 #header-row{
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 15px;
-	background-color: #F3F1EA;
+	background-color: white;
 }
 
 #body-cont {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 15px;
-	background-color: #F3F1EA;
+	background-color: white;
 }
 
 .room-available,
