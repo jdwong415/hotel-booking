@@ -3,7 +3,8 @@ img {
 }
 
 .room-available,
-.room-occupied {
+.room-occupied,
+.room-reserved {
 	text-align: center;
 	display: inline-block;
 	width: 50px;
@@ -24,8 +25,13 @@ img {
 	background-color: red;
 }
 
+.room-reserved {
+	background-color: blue;
+}
+
 .sm-room-available,
-.sm-room-occupied {
+.sm-room-occupied,
+.sm-room-reserved {
 	width: 20px;
 	height: 20px;
 	margin-bottom: 10px;
@@ -39,6 +45,10 @@ img {
 
 .sm-room-occupied {
 	background-color: red;
+}
+
+.sm-room-reserved {
+	background-color: blue;
 }
 
 .div-legend {
