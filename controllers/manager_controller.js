@@ -5,15 +5,7 @@ const db = require("../models");
 router.get('/admin/rooms', function(req, res) {
   db.Room.findAll({}).then(function(result) {
     res.render("rooms", {
-      rooms: result,
-      helpers: {
-        times: function(n, block) {
-          var accum = '';
-          for(var i = 0; i < n; ++i)
-            accum += block.fn(i);
-          return accum;
-        }
-      }
+      rooms: result
     });
   });
 });
@@ -24,11 +16,11 @@ router.post('/admin/rooms', function(req, res) {
       last_name: req.body.name
     }
   }).then(function(result) {
-    console.log(result);
+    res.json(result);
   });
 });
 
-router.get('/admin/rooms/:id', function(req, res) {
+router.get('/admin/rooms/id/:id', function(req, res) {
   db.Room.findAll({
     where: {
       id: req.params.id
@@ -39,6 +31,18 @@ router.get('/admin/rooms/:id', function(req, res) {
       rooms: result
     });
   });
-})
+});
+
+router.put("/room/checkin/:id", function(req, res) {
+  db.Room.update({
+    checkin: true
+  }, {
+    where: {
+      id: req.params.id
+    }
+  }).then(function(result) {
+    res.redirect("/admin/rooms/id/" + req.params.id);
+  });
+});
 
 module.exports = router;

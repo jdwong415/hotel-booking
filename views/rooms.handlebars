@@ -1,36 +1,28 @@
-<form id="search-from">
-  <label for="name">Search For Guest:</label>
-  <div class="input-group">
-    <input class="form-control" type="text" id="name" name="name">
-    <span class="input-group-btn">
-      <button class="btn btn-secondary" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
-    </span>
+<div class="row">
+  <div class="col-md-12">
+    <form id="search-form">
+      <label for="name">Search For Guest:</label>
+      <div class="input-group">
+        <input class="form-control" type="text" id="name" name="name">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" id="search-btn" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+        </span>
+      </div>
+    </form>
   </div>
-</form>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div id="search-rooms"></div>
+  </div>
+</div>
 
 <h1>All Rooms</h1>
-
-{{!-- <ul class="list-unstyled">
-  {{#each rooms}}
-  	<li>
-  		<p>Room: {{this.id}}</p>
-    	<p>Available: {{this.available}}</p> --}}
-
-		{{!-- Form should send a delete command to the server --}}
-		{{!-- <form>
-		<input type="hidden" name="id" value="{{this.id}}">
-		<button type="submit">Delete this room</button>
-		</form>
-
-      <a href="/{{this.id}}">Update this room</a> --}}
-  	{{!-- </li>
-  {{/each}}
-</ul> --}}
 
 <div class="row">
 	<div class="col-md-12">
 	{{#each rooms}}
-		<a href="/admin/rooms/{{this.id}}">
+		<a href="/admin/rooms/id/{{this.id}}">
 			{{#if this.available}}
 			  <div class="room-available">{{this.id}}</div>
 			{{/if}}
@@ -64,3 +56,31 @@
     <p>Reserved</p>
   </div>
 </div>
+
+<script>
+  $("#search-btn").on("click", function() {
+    event.preventDefault();
+    $.post("/admin/rooms", $("#search-form").serialize(), function(result) {
+      result.forEach(function(val) {
+        var newDiv = $("<div/>");
+        newDiv.addClass("well");
+        var roomNumber = $("<p/>");
+        roomNumber.html("<strong>Room #" + val.room_number + "</strong>");
+        var firstName = $("<p/>");
+        firstName.html("<strong>First Name:</strong> " + val.first_name);
+        var lastName = $("<p/>");
+        lastName.html("<strong>Last Name:</strong> " + val.last_name);
+        var phone = $("<p/>");
+        phone.html("<strong>Phone:</strong> " + val.phone);
+        var email = $("<p/>");
+        email.html("<strong>Email:</strong> " + val.email);
+        newDiv.append(roomNumber);
+        newDiv.append(firstName);
+        newDiv.append(lastName);
+        newDiv.append(phone);
+        newDiv.append(email);
+        $("#search-rooms").append(newDiv);
+      });
+    });
+  });
+</script>
