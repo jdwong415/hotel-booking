@@ -18,6 +18,16 @@ router.get('/admin/rooms', function(req, res) {
   });
 });
 
+router.post('/admin/rooms', function(req, res) {
+  db.Guest.findAll({
+    where: {
+      last_name: req.body.name
+    }
+  }).then(function(result) {
+    console.log(result);
+  });
+});
+
 router.get('/admin/rooms/:id', function(req, res) {
   db.Room.findAll({
     where: {
