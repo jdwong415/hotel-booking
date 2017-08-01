@@ -5,21 +5,20 @@
   <label class="mr-sm-2" for="inlineFormCustomSelect">Room Number</label>
   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
     <option selected>Choose...</option>
-    {{#each room}}
-      {{if this.available}}
-        <option value="""{{this.room_number}}""">{{this.room_number}}</option>
+    {{#each rooms}}
+      {{#if this.available}}
+        <option value="{{this.id}}">{{this.id}}</option>
       {{/if}}
     {{/each}}
   </select>
+  <label class="sr-only" for="firstName"></label>
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstName" name="firstName" placeholder="First Name">
 
-  <label class="sr-only" for="inlineFormInput"></label>
-  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstName" placeholder="First Name">
+  <label class="sr-only" for="lastName"></label>
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="lastName" name="lastName" placeholder="Last Name">
 
-  <label class="sr-only" for="inlineFormInput"></label>
-  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="lastName" placeholder="Last Name">
-
-  <label class="sr-only" for="inlineFormInput"></label>
-  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="phoneNum" placeholder="Phone Number">
+  <label class="sr-only" for="phoneNum"></label>
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="phoneNum" name="phoneNum" placeholder="Phone Number">
 
   <label class="sr-only" for="inlineFormInput"></label>
   <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" placeholder="Email">
@@ -28,8 +27,8 @@
     <button type="submit" id="book-room">Book</button>
   </form>
 
+  <button type="submit" id="book-room">Book</button>
 </form>
-
 
 <div>
     <form action="/" method="GET">

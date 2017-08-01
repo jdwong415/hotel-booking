@@ -1,20 +1,45 @@
 <h1>All Rooms</h1>
 
+{{!-- <ul class="list-unstyled">
+  {{#each rooms}}
+  	<li>
+  		<p>Room: {{this.id}}</p>
+    	<p>Available: {{this.available}}</p> --}}
+
+		{{!-- Form should send a delete command to the server --}}
+		{{!-- <form>
+		<input type="hidden" name="id" value="{{this.id}}">
+		<button type="submit">Delete this room</button>
+		</form>
+
+      <a href="/{{this.id}}">Update this room</a> --}}
+  	{{!-- </li>
+  {{/each}}
+</ul> --}}
+
 <div class="row">
-  <div class="col-lg-9">
-    {{#each room}}
-    	<div>
-    		<p><span class="label">Room number:</span> {{this.room_number}}</p>
-      	<p><span class="label">Available:</span> {{this.available}}</p>
-
-    		{{!-- Form should send a delete command to the server --}}
-    		<form>
-    		<input type="hidden" name="id" value="{{this.id}}">
-    		<button type="submit">Delete this room</button>
-    		</form>
-
-        <a href="/{{this.id}}">Update this room</a>
-    	</div>
-    {{/each}}
-  </div>
+	<div class="col-md-12">
+	{{#each rooms}}
+		<a href="/admin/rooms/{{this.id}}">
+			{{#if this.available}}
+				<div class="room-available">{{this.id}}</div>
+			{{/if}}
+			{{#unless this.available}}
+				<div class="room-occupied">{{this.id}}</div>
+			{{/unless}}
+		</a>
+	{{/each}}
+	</div>
+</div>
+<div class="row div-legend">
+	<div class="col-md-12">
+		<div class="sm-room-available"></div>
+		<p>Available</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="sm-room-occupied"></div>
+		<p>Occupied</p>
+	</div>
 </div>
