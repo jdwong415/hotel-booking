@@ -71,25 +71,4 @@
     <footer class="footer"></footer>
 
   </div>
-=======
-<h1>All Tables</h1>
-
-<div class="row">
-  <div class="col-lg-9">
-    {{#each table}}
-    	<br><hr>
-    		<p><span class="label">Table id:</span> {{this.id}}</p>
-      	<p><span class="label">Booked at </span> {{this.timestamp}}</p>
-        <p><span class="label">Party of </span> {{this.party_number}}</p>
-
-  		{{!-- Form should send a delete command to the server --}}
-  		<form>
-  		<input type="hidden" name="id" value="{{this.id}}">
-  		<button type="submit">Delete this table</button>
-  		</form>
-
-        <a href="/{{this.id}}">Update this table</a>
-    {{/each}}
-  </div>
-</div>
 
