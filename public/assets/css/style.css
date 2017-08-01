@@ -1,4 +1,4 @@
-/*Color scheme
+/*===================Color Scheme=====================
 egg blue: #d0e4ef;
 
 grey blue: #D4E7E8;
@@ -7,6 +7,10 @@ beige: #E5E0CC;
 denim: #045675;
 navy: #03122B;
 */
+
+/*==================Font Families=====================
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Lato', sans-serif;*/
 
 body{
 	background-color: #D4E7E8;
@@ -18,10 +22,20 @@ img{
 
 p{
 	text-align: center;
+	font-family: 'Lato', sans-serif;
+}
+
+h1{
+	font-family: 'Fjalla One', sans-serif;
+	color: black;
+	text-align: center;
+	font-size: 25px;
 }
 
 h3{
+	font-family: 'Fjalla One', sans-serif;
 	color: #045675;
+	font-size: 30px;
 }
 
 #header-row{
