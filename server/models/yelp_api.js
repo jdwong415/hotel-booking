@@ -12,11 +12,11 @@
 		console.log(response.jsonBody.access_token);
 
 	})
-	// .catch(error => {
+	.catch(error => {
 
-	// 	console.log("ERROR CONNETING TO YELP TOKEN: " + error);
+		console.log("ERROR CONNETING TO YELP TOKEN: " + error);
 
-	// });// close token var
+	});// close token var
 
 	console.log("YELP TOKEN: ", token);
 
