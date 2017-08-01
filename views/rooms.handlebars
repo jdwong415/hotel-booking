@@ -1,18 +1,66 @@
+<form id="search-from">
+  <label for="name">Search For Guest:</label>
+  <div class="input-group">
+    <input class="form-control" type="text" id="name" name="name">
+    <span class="input-group-btn">
+      <button class="btn btn-secondary" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+    </span>
+  </div>
+</form>
+
 <h1>All Rooms</h1>
 
-<ul class="list-unstyled">
-  {{#each room}}
+{{!-- <ul class="list-unstyled">
+  {{#each rooms}}
   	<li>
-  		<p><span class="label">Room number:</span> {{this.room_number}}</p>
-    	<p><span class="label">Available:</span> {{this.available}}</p>
+  		<p>Room: {{this.id}}</p>
+    	<p>Available: {{this.available}}</p> --}}
 
 		{{!-- Form should send a delete command to the server --}}
-		<form>
+		{{!-- <form>
 		<input type="hidden" name="id" value="{{this.id}}">
 		<button type="submit">Delete this room</button>
 		</form>
 
-      <a href="/{{this.id}}">Update this room</a>
-  	</li>
+      <a href="/{{this.id}}">Update this room</a> --}}
+  	{{!-- </li>
   {{/each}}
-</ul>
+</ul> --}}
+
+<div class="row">
+	<div class="col-md-12">
+	{{#each rooms}}
+		<a href="/admin/rooms/{{this.id}}">
+			{{#if this.available}}
+			  <div class="room-available">{{this.id}}</div>
+			{{/if}}
+			{{#unless this.available}}
+        {{#unless this.checkin}}
+          <div class="room-reserved">{{this.id}}</div>
+        {{/unless}}
+        {{#if this.checkin}}
+          <div class="room-occupied">{{this.id}}</div>
+        {{/if}}
+			{{/unless}}
+		</a>
+	{{/each}}
+	</div>
+</div>
+<div class="row div-legend">
+	<div class="col-md-12">
+		<div class="sm-room-available"></div>
+		<p>Available</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="sm-room-occupied"></div>
+		<p>Occupied</p>
+	</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="sm-room-reserved"></div>
+    <p>Reserved</p>
+  </div>
+</div>

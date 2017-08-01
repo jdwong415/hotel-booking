@@ -4,12 +4,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true
+    },
+    checkin: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   });
 
   Room.associate = function(models) {
     Room.belongsTo(models.Guest, {
-      onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
       }
