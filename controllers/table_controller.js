@@ -2,8 +2,40 @@ const express = require('express');
 const router = express.Router();
 const db = require("../models");
 
-router.get('/', function(req, res) {
-  res.redirect('/index');
+
+//get all the res
+router.get('/tables', function(req, res) {
+  db.Table.findAll({ 
+  }).then(function(data) {
+    var hbsObject = {tables: data};
+    console.log(hbsObject);
+    res.render('tables', hbsObject);
+  });
+});
+
+//adding a res to the list
+router.post('/tables', function(req, res) {
+	console.log(req.body);
+  	db.Table.create({
+  	name: req.body.name,
+  	phone: req.body.phone,
+  	email: req.body.email,
+    num_party: req.body.num_party,
+    res_time: req.body.res_time
+   }).then(function(data) {
+    res.redirect('/tables');
+  });
+});
+
+//delete a res
+router.delete("/tables/:id", function(req, res) {
+    return db.Table.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(function() {
+        res.redirect('/tables');
+    });
 });
 
 module.exports = router;
