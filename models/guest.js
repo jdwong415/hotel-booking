@@ -25,6 +25,12 @@ module.exports = function(sequelize, DataTypes) {
     room_number: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    checkin: {
+      type: DataTypes.DATEONLY
+    },
+    checkout: {
+      type: DataTypes.DATEONLY
     }
   });
 
