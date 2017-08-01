@@ -16,23 +16,21 @@ body{
 	background-color: #F3F1EA;
 }
 
-img{
+img {
 	width: 100%;
 }
 
-p{
-	text-align: center;
+p {
 	font-family: 'Lato', sans-serif;
 }
 
-h1{
+h1 {
 	font-family: 'Fjalla One', sans-serif;
 	color: black;
-	text-align: center;
 	font-size: 25px;
 }
 
-h3{
+h3 {
 	font-family: 'Fjalla One', sans-serif;
 	color: #045675;
 	font-size: 30px;
