@@ -25,7 +25,6 @@ app.get('/', function(req, res) {
 });
 app.use(require('./controllers/guest_controller'));
 app.use(require('./controllers/manager_controller'));
-app.use(require('./controllers/restaurant_controller'));
 app.use(require('./controllers/room_controller'));
 app.use(require('./controllers/table_controller'));
 
