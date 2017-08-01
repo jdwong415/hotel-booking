@@ -45,11 +45,12 @@ h3{
 	background-color: #F3F1EA;
 }
 
-#body-cont{
+#body-cont {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 15px;
 	background-color: #F3F1EA;
+}
 
 .room-available,
 .room-occupied,
