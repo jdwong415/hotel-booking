@@ -1,8 +1,9 @@
 <h1>Book a Room</h1>
 
-<form class="form-inline" action="/book" method="POST">
-  <label class="mr-sm-2" for="room">Preference</label>
-  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="room" name="room">
+<form class="form-inline">
+
+  <label class="mr-sm-2" for="inlineFormCustomSelect">Room Number</label>
+  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
     <option selected>Choose...</option>
     {{#each rooms}}
       {{#if this.available}}
@@ -19,8 +20,12 @@
   <label class="sr-only" for="phoneNum"></label>
   <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="phoneNum" name="phoneNum" placeholder="Phone Number">
 
-  <label class="sr-only" for="email"></label>
-  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" name="email" placeholder="name@domain.com">
+  <label class="sr-only" for="inlineFormInput"></label>
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" placeholder="Email">
+
+  <form action="/?_method=PUT" method="POST">
+    <button type="submit" id="book-room">Book</button>
+  </form>
 
   <button type="submit" id="book-room">Book</button>
 </form>
