@@ -1,0 +1,18 @@
+{{#each rooms}}
+  <p><strong>Room #{{this.id}}</strong></p>
+  <p><strong>Available:</strong> {{this.available}}</p>
+
+  {{#unless this.available}}
+    <h3>Current Guest Information:</h3>
+    <p><strong>First Name:</strong> {{this.Guest.first_name}} <strong>Last Name:</strong> {{this.Guest.last_name}}</p>
+    <p><strong>Phone:</strong> {{this.Guest.phone}} <strong>Email:</strong> {{this.Guest.email}}</p>
+  {{/unless}}
+
+  {{!-- Form should send a delete command to the server --}}
+  <form>
+    <input type="hidden" name="id" value="{{this.id}}">
+    <button type="submit">Delete this room</button>
+  </form> 
+
+  <a href="/admin/rooms/{{this.id}}">Update this room</a>
+{{/each}}
