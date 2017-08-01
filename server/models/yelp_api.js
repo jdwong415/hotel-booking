@@ -12,11 +12,11 @@
 		console.log(response.jsonBody.access_token);
 
 	})
-	.catch(error => {
+	// .catch(error => {
 
-		console.log("ERROR CONNETING TO YELP TOKEN: " + error);
+	// 	console.log("ERROR CONNETING TO YELP TOKEN: " + error);
 
-	});// close token var
+	// });// close token var
 
 	console.log("YELP TOKEN: ", token);
 
@@ -28,33 +28,19 @@
 
 
 // GET SEARCH TERMS FROM USER
-
 	client.search({
-	  term:'Four Barrel Coffee',
-	  location: 'san francisco, ca'
+
+		term: "Four Barrel Coffee",
+		location: "san francisco, ca"
+
 	}).then(response => {
-	  console.log(response.jsonBody.businesses[0].name);
-	}).catch(e => {
-	  console.log(e);
-	});
 
+		console.log(response.jsonBody.businesses[0].name);
 
+	}).catch(error => {
 
+		console.log("YELP SEARCH ERROR: ", error);
 
-
-	// client.search({
-
-	// 	term: "Four Barrel Coffee",
-	// 	location: "san francisco, ca"
-
-	// }).then(response => {
-
-	// 	console.log(response.jsonBody.businesses[0].name);
-
-	// }).catch(error => {
-
-	// 	console.log("YELP SEARCH ERROR: ", error);
-
-	// });// close client search
+	});// close client search
 
 
