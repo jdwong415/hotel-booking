@@ -2,7 +2,7 @@
 
 <form class="form-inline">
 
-  <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
+  <label class="mr-sm-2" for="inlineFormCustomSelect">Room Number</label>
   <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
     <option selected>Choose...</option>
     {{#each room}}
@@ -22,7 +22,7 @@
   <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="phoneNum" placeholder="Phone Number">
 
   <label class="sr-only" for="inlineFormInput"></label>
-  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" placeholder="name@domain.com">
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" placeholder="Email">
 
   <form action="/?_method=PUT" method="POST">
     <button type="submit" id="book-room">Book</button>

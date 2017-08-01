@@ -20,7 +20,18 @@ p{
 	text-align: center;
 }
 
+h3{
+	color: #045675;
+}
+
 #header-row{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 15px;
+	background-color: #F3F1EA;
+}
+
+#body-cont{
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 15px;
