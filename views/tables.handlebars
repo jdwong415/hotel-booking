@@ -21,29 +21,34 @@
       <div class="form-group">
         <label for="res-name">Name</label>
         <input type="text" class="form-control" id="res-name" name="name">
+        <p class="validate" id="name-validate" style="display:none;">Please enter your name.</p>
       </div>
 
       <div class="form-group">
         <label for="res-phone">Phone Number</label>
         <input type="text" class="form-control" id="res-phone" name="phone">
+        <p class="validate" id="phone-validate" style="display:none;">Please enter your phone number.</p>
       </div>
 
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text" class="form-control" id="res-email" name="email">
+        <p class="validate" id="email-validate" style="display:none;">Please enter your email.</p>
       </div>
 
       <div class="form-group">
         <label for="res-time">Reservation Time</label>
         <input type="text" class="form-control" id="res-time" name="res_time">
+        <p class="validate" id="res-time-validate" style="display:none;">Please enter a reservation time. (hhmm)</p>
       </div>
 
       <div class="form-group">
         <label for="res-number">Number in Party</label>
         <input type="text" class="form-control" id="res-number" name="num_party">
+        <p class="validate" id="num-party-validate" style="display:none;">Please enter number in party.</p>
       </div>
 
-      <button type="submit" class="btn btn-primary submit">Submit</button>
+      <button type="submit" class="btn btn-primary submit"  onClick="return empty()">Submit</button>
       </form> <br>
     </div>
 
@@ -96,4 +101,53 @@
     <footer class="footer"></footer>
 
   </div>
+
+  <script>
+  // Prevent empty input
+  function empty() {
+    var email = $("#res-email").val();
+    var phone = $("#res-phone").val();
+    var name = $("#res-name").val();
+    var number = $("#res-number").val();
+    var time = $("#res-time").val();
+    var validate = true;
+
+    if (!email) {
+      $("#email-validate").show();
+      validate = false;
+    }
+    else if (email) {
+      $("#email-validate").hide();
+    }
+    if (!name) {
+      $("#name-validate").show();
+      validate = false;
+    }
+    else if (name) {
+      $("#name-validate").hide();
+    }
+    if (!phone) {
+      $("#phone-validate").show();
+      validate = false;
+    }
+    else if (phone) {
+      $("#phone-validate").hide();
+    }
+    if (!time) {
+      $("#res-time-validate").show();
+      validate = false;
+    }
+    else if (time) {
+      $("#res-time-validate").hide();
+    }
+    if (!number) {
+      $("#num-party-validate").show();
+      validate = false;
+    }
+    else if (number) {
+      $("#num-party-validate").hide();
+    }
+    return validate;
+  }
+</script>
 
