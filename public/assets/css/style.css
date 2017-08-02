@@ -142,3 +142,7 @@ h3 {
 .legend {
 	line-height: 20px;
 }
+
+.validate {
+  color: red;
+}

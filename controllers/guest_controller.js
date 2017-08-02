@@ -18,16 +18,16 @@ router.post('/room/book', function(req, res) {
     room_number: req.body.room,
     checkin: req.body.checkin,
     checkout: req.body.checkout
-  }).then(function(result) {
+  }).then(function(result1) {
     db.Room.update({
-      GuestId: result.dataValues.id,
+      GuestId: result1.dataValues.id,
       available: false
     }, {
       where: {
         id: req.body.room
       }
     }).then(function(result) {
-      res.redirect("/guest");
+      res.redirect("/guest/" + result1.dataValues.id);
     });
   });
 });
@@ -51,16 +51,16 @@ router.post('/room/book/id/:id', function(req, res) {
     room_number: req.body.room,
     checkin: req.body.checkin,
     checkout: req.body.checkout
-  }).then(function(result) {
+  }).then(function(result1) {
     db.Room.update({
-      GuestId: result.dataValues.id,
+      GuestId: result1.dataValues.id,
       available: false
     }, {
       where: {
         id: req.body.room
       }
     }).then(function(result) {
-      res.redirect("/guest");
+      res.redirect("/guest/" + result1.dataValues.id);
     });
   });
 });
@@ -82,8 +82,31 @@ router.delete("/room/checkout/:id", function(req, res) {
   // });
 });
 
-router.get('/guest', function(req, res) {
-  res.render("guest");
+router.get('/guest/:id', function(req, res) {
+  db.Guest.findAll({
+    where: {
+      id: req.params.id
+    },
+    include: [db.Room]
+  }).then(function(result) {
+    res.render("guest", {
+      guest: result
+    });
+  });
+});
+
+router.post('/guest/:id', function(req, res) {
+  db.Guest.findAll({
+    where: {
+      email: req.body.email,
+      last_name: req.body.lastname,
+      room_number: req.body.room
+    }
+  }).then(function(result) {
+    res.redirect('/guest/' + result[0].dataValues.id);
+  }).catch(function(err) {
+    res.redirect('/guest/login');
+  });
 });
 
 module.exports = router;
