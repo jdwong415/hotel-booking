@@ -24,7 +24,16 @@ body {
   background-size: cover;
 }
 
-.example-8, .bookroom{
+#search-form {
+	margin-top: 20px;
+}
+
+.main {
+	background-color: white;
+	opacity: .8;
+}
+
+.example-8 {
 	background-color: #F3F1EA;
 	opacity: 0.96;
 }
