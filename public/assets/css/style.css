@@ -41,9 +41,6 @@ body {
 .example-8 .navbar-brand {
   background: url(/assets/img/LOGOfinal.png) center / contain no-repeat;
   width: 200px;
-  transform: translateX(-50%);
-  left: 50%;
-  position: absolute;
 }
 
 .navbar-inverse .navbar-nav>li>a:hover{
