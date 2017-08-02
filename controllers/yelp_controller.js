@@ -11,21 +11,21 @@
 
 
 
-// VERSION 2 of YELP FUSION API CALL
+// YELP FUSION API CALL
 
 router.get("/yelp", function(req, res) {
-  res.render("../views/yelpsearch.html");
+  res.render("test");
 });
 
 router.post("/yelp", function(req, res) {
 
-	console.log(req);
+	console.log("USER RESPONSE: ", req.body);
 
 	// USER SEARCH TERMS
 	var searchRequest = {
 
-		term: "Four Barrel Coffee",
-		location: "san francisco, ca"
+		term: req.body.term,
+		location: req.body.location
 	};
 
 	// CREATING YELP ACCESS TOKEN
@@ -40,7 +40,7 @@ router.post("/yelp", function(req, res) {
 
 			for (var i = 0; i < response.jsonBody.businesses.length; i++) {
 
-				var firstResult = response.jsonBody.businesses[0];
+				var firstResult = response.jsonBody.businesses[i];
 				var prettyJson = JSON.stringify(firstResult, null, 4);
 				console.log(prettyJson);
 				

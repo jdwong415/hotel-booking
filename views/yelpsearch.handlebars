@@ -1,0 +1,122 @@
+	<div class="container">
+
+		<h2>Find Fun Near Che Jerome!</h2>
+		<hr>
+		<br>
+		<br>
+
+		<h3><strong>Yelp Search</strong></h3>
+		<h4>Find</h4>
+		<input type="text" name="" id="venue", placeholder="Starbucks" class="form-control" required >
+
+		<h4>Near</h4>
+		<input type="text" name="" id="location", placeholder="San Francisco, CA" class="form-control" required >
+
+		<hr>
+
+
+
+		<!-- Submit Button -->
+		<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
+ Submit</button>
+
+		<hr>
+	    <footer class="footer">
+	      <div class="container">
+		        <p><a href="/">Home</a> | <a href="/food/index">Restaurant Reservations</a></p>
+	      </div>
+	    </footer>
+
+	</div>
+
+	<!-- Display Yelp Results -->
+	<div class = "yelpResults">
+
+	</div><!-- close row -->
+
+	  
+
+  <script type="text/javascript">
+
+  	// Chosen CSS
+    var config = {
+      '.chosen-select'           : {},
+      '.chosen-select-deselect'  : {allow_single_deselect:true},
+      '.chosen-select-no-single' : {disable_search_threshold:10},
+      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      '.chosen-select-width'     : {width:"95%"}
+    }
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+
+    // Capture the form inputs 
+    $("#submit").on("click", function(){
+
+    	// Form validation
+    	function validateForm() {
+		  var isValid = true;
+		  $('.form-control').each(function() {
+		    if ( $(this).val() === '' )
+		        isValid = false;
+		  });
+
+		  $('.chosen-select').each(function() {
+
+		  	if( $(this).val() === "")
+		  		isValid = false
+		  })
+		  return isValid;
+		}
+
+		// If all required fields are filled
+		if (validateForm() == true)
+		{
+			// Create an object for the user's data
+	    	var userData = {
+	    		term: $("#venue").val(),
+	    		location: $("#location").val(),
+	    	}
+
+
+	    	// Grab the URL of the website
+	    	var currentURL = window.location.origin;
+
+	    	// AJAX post the data to the Avengers team API. 
+	    	$.post(currentURL + "/yelp", userData, function(data){
+
+		    		// Grab the result from the Yelp post 
+		    		$("#venue").val(data.venue);
+		    		$("#location").val(data.location);
+   	
+
+			    	
+	    	})
+	    	.then(function(req, res) {
+
+	    		var displayYelpResults = "<div class = row>" + "<div class = col-md-2>" + "<h3>" + res.name + "</h3>" + "</div>"
+
+	    		displayYelpResults += "<div class = col-md-2>" + "<h3>" + res.display_address + "</h3>" + "</div>"
+
+	    		displayYelpResults += "<div class = col-md-2>" + "<h3>" + res.is_closed + "</h3>" + "</div>"
+
+	    		displayYelpResults += "<div class = col-md-2>" + "<h3>" + res.url + "</h3>" + "</div>"
+
+	    		displayYelpResults += "<div class = col-md-2>" + "<h3>" + res.display_phone + "</h3>" + "</div>"
+
+	    		displayYelpResults += "<div class = col-md-2>" + "<h3>" + res.rating + "</h3>" + "</div>" + "</div>"
+
+	    		$("yelpResults").append(displayYelpResults);
+
+	    	})
+
+		}
+		else
+		{
+			alert("Please fill out all fields before searching!");
+		}
+    	
+    	return false;
+    });
+
+  </script>
