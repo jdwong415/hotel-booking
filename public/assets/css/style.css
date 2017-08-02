@@ -40,7 +40,7 @@ body {
 }
 
 div{
-	opacity: 0.98;
+	opacity: 0.95;
 }
 
 p {
@@ -53,10 +53,22 @@ h1 {
 	font-size: 25px;
 }
 
+h2 {
+	font-family: 'Fjalla One', sans-serif;
+}
+
 h3 {
 	font-family: 'Fjalla One', sans-serif;
 	color: #045675;
 	font-size: 30px;
+}
+
+a {
+	font-family: 'Lato', sans-serif;
+}
+
+label {
+	font-family: 'Lato', sans-serif;
 }
 
 .btn-big {
@@ -170,6 +182,12 @@ h3 {
 
 .div-legend {
 	margin-top: 10px;
+}
+
+div.col-lg-8{
+	background-color: white;
+	padding: 20px;
+
 }
 
 .legend {
