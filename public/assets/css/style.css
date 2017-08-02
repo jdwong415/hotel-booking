@@ -12,12 +12,35 @@ navy: #03122B;
 font-family: 'Fjalla One', sans-serif;
 font-family: 'Lato', sans-serif;*/
 
-body {
-	background-color: #F3F1EA;
+/*================Other Background Images=============
+https://best-wallpaper.net/wallpaper/1680x1050/1209/Golden-gate-bridge-San-Francisco-Night-bridge-lights_1680x1050.jpg
+http://wallpapercave.com/wp/Y4EJI08.jpg
+http://www.dakdillonphotography.com/wp-content/uploads/2015/03/20141124dd2736_sfo_aerial.jpg
+*/
+
+body { 
+  background: url(http://dodskypict.com/D/San-Francisco-Wallpaper-On-Wallpaper-Hd-7-1920x1080.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-img {
-	width: 100%;
+.example-8{
+	background-color: white;
+	opacity: 0.7;
+}
+
+.example-8 .navbar-brand {
+  background: url(/assets/img/LOGOfinal.png) center / contain no-repeat;
+  width: 200px;
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+}
+
+div{
+	opacity: 0.98;
 }
 
 p {
@@ -40,8 +63,10 @@ h3 {
   padding: 14px 24px;
   border: 0 none;
   font-weight: 700;
+  color: white;
   letter-spacing: 1px;
   text-transform: uppercase;
+  background-color: #E5E0CC;
 }
  
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -62,8 +87,16 @@ h3 {
 #body-cont {
 	margin-top: 10px;
 	margin-bottom: 10px;
+	height: 300px;
 	padding: 15px;
-	background-color: white;
+}
+
+#book-room-pg{
+	margin-left: 200px;
+}
+
+#login-pg{
+	margin-left: 100px;
 }
 
 .well {
