@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-12">
+    <form id="search-form">
+      <label for="name">Search For Guest:</label>
+      <div class="input-group">
+        <input class="form-control" type="text" id="name" name="name">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" id="search-btn" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div id="search-tables"></div>
+  </div>
+</div>
+
+<h1>All Tables</h1>
+
+<div class="row">
+  <div class="col-md-12">
+  {{#each tables}}
+    <a href="/admin/tables/id/{{this.id}}">
+      {{#if this.available}}
+          <div class="room-reserved">{{this.id}}</div>
+        {{/if}}
+    </a>
+  {{/each}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="sm-room-reserved"></div>
+    <p>Reserved</p>
+  </div>
+</div>

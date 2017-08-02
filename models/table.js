@@ -1,16 +1,25 @@
 module.exports = function(sequelize, DataTypes) {
   var Table = sequelize.define("Table", {
     name: {
-    type: DataTypes.STRING,
-    allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        is: ["^[a-z]+$",'i']
+      }
     },
     phone: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        not: ["[a-z]",'i']
+      }
     },
     email: {
       type:DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate:  {
+        isEmail: true
+      }
     },
     res_time: {
       type: DataTypes.TIME,
@@ -19,6 +28,11 @@ module.exports = function(sequelize, DataTypes) {
     num_party: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    available: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     }
     
   });
