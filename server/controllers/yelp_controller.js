@@ -1,4 +1,6 @@
 // REQUIRED PACKAGES
+	var express = require("express");
+	var router = express.Router();
 	var yelpKeys = require("../config.js");
 	var yelp = require("yelp-fusion");
 
@@ -9,7 +11,15 @@
 
 
 
-// VERSION 2 of YELP FUSION
+// VERSION 2 of YELP FUSION API CALL
+
+router.get("/yelp", function(req, res) {
+  res.render("../views/yelpsearch.html");
+});
+
+router.post("/yelp", function(req, res) {
+
+	console.log(req);
 
 	// USER SEARCH TERMS
 	var searchRequest = {
@@ -28,9 +38,13 @@
 		client.search(searchRequest)
 		.then((response => {
 
-			var firstResult = response.jsonBody.businesses[0];
-			var prettyJson = JSON.stringify(firstResult, null, 4);
-			console.log(prettyJson);
+			for (var i = 0; i < response.jsonBody.businesses.length; i++) {
+
+				var firstResult = response.jsonBody.businesses[0];
+				var prettyJson = JSON.stringify(firstResult, null, 4);
+				console.log(prettyJson);
+				
+			}// close for loop
 
 		}));// close client search .then func
 	})
@@ -39,6 +53,13 @@
 		console.log("ERROR w/ TOKEN & SEARCH: ", error);
 
 	});// close access token error catch func
+
+})// close post funct
+
+
+// EXPORT FUNCTION
+module.exports = router;
+
 
 
 
