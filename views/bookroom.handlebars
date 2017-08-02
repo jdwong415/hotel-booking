@@ -1,39 +1,117 @@
 <h1>Book a Room</h1>
 
-<form class="form-inline" action="/room/book" method="POST">
-
-  <label class="mr-sm-2" for="room">Room Number: </label>
-  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="room" name="room">
-    <option selected>Choose...</option>
-    {{#each rooms}}
-      {{#if this.available}}
-        <option value="{{this.id}}">{{this.id}}</option>
-      {{/if}}
-    {{/each}}
-  </select>
-  <label class="sr-only" for="firstName"></label>
-  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstName" name="firstName" placeholder="First Name">
-
-  <label class="sr-only" for="lastName"></label>
-  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="lastName" name="lastName" placeholder="Last Name">
-
-  <label class="sr-only" for="phoneNum"></label>
-  <input type="tel" class="form-control mb-2 mr-sm-2 mb-sm-0" id="phoneNum" name="phoneNum" placeholder="Phone Number">
-
-  <label class="sr-only" for="email"></label>
-  <input type="email" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" name="email" placeholder="Email">
-  <br>
-  <label class="mr-sm-2" for="checkin">Check-in Date: </label>
-  <input type="date" class="form-control mb-2 mr-sm-2 mb-sm-0" id="checkin" name="checkin">
-
-  <label class="mr-sm-2" for="checkout">Check-out Date: </label>
-  <input type="date" class="form-control mb-2 mr-sm-2 mb-sm-0" id="checkout" name="checkout">
-
-  <button type="submit" id="book-room" class="btn-lg round">Book</button>
+<form action="/room/book" method="POST">
+  <div class="form-group">
+    <label class="mr-sm-2" for="room">Room Number: </label>
+    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="room" name="room" required>
+      <option value="" disabled selected hidden>Choose a room</option>
+      {{#each rooms}}
+        {{#if this.available}}
+          <option value="{{this.id}}">{{this.id}}</option>
+        {{/if}}
+      {{/each}}
+    </select>
+    <p class="validate" id="room-validate" style="display:none;">Please select a room number.</p>
+  </div>
+  <div class="form-group">
+    <label class="mr-sm-2" for="firstName">First Name:</label>
+    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstName" name="firstName" placeholder="First Name">
+    <p class="validate" id="firstname-validate" style="display:none;">Please enter your first name.</p>
+  </div>
+  <div class="form-group">
+    <label class="mr-sm-2" for="lastName">Last Name:</label>
+    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="lastName" name="lastName" placeholder="Last Name">
+    <p class="validate" id="lastname-validate" style="display:none;">Please enter your last name.</p>
+  </div>
+  <div class="form-group">
+    <label class="mr-sm-2" for="phoneNum">Phone Number:</label>
+    <input type="tel" class="form-control mb-2 mr-sm-2 mb-sm-0" id="phoneNum" name="phoneNum" placeholder="Phone Number">
+    <p class="validate" id="phone-validate" style="display:none;">Please enter your phone number.</p>
+  </div>
+  <div class="form-group">
+    <label class="mr-sm-2" for="email">Email:</label>
+    <input type="email" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" name="email" placeholder="Email">
+    <p class="validate" id="email-validate" style="display:none;">Please enter your email.</p>
+  </div>
+  <div class="form-group">
+    <label class="mr-sm-2" for="checkin">Check-in Date: </label>
+    <input type="date" class="form-control mb-2 mr-sm-2 mb-sm-0" id="checkin" name="checkin">
+    <p class="validate" id="checkin-validate" style="display:none;">Please select the day you will check in.</p>
+  </div>
+  <div class="form-group">
+    <label class="mr-sm-2" for="checkout">Check-out Date: </label>
+    <input type="date" class="form-control mb-2 mr-sm-2 mb-sm-0" id="checkout" name="checkout">
+    <p class="validate" id="checkout-validate" style="display:none;">Please select the day you will check out.</p>
+  </div>
+  <button type="submit" id="book-room" class="btn-lg round" onClick="return empty()">Book</button>
 </form>
 
 <div>
-    <form action="/" method="GET">
-      <button type="submit" id="go-back">Back to Home</button>
-    </form>
+  <form action="/" method="GET">
+    <button type="submit" id="go-back">Back to Home</button>
+  </form>
 </div>
+<script>
+  // Prevent empty input
+  function empty() {
+    var room = $("#room").val();
+    var firstname = $("#firstname").val();
+    var lastname = $("#lastname").val();
+    var phone = $("#phone").val();
+    var email = $("#email").val();
+    var checkin = $("#checkin").val();
+    var checkout = $("#checkout").val();
+    var validate = true;
+
+    if (!email) {
+      $("#email-validate").show();
+      validate = false;
+    }
+    else if (email) {
+      $("#email-validate").hide();
+    }
+    if (!firstname) {
+      $("#firstname-validate").show();
+      validate = false;
+    }
+    else if (firstname) {
+      $("#firstname-validate").hide();
+    }
+    if (!lastname) {
+      $("#lastname-validate").show();
+      validate = false;
+    }
+    else if (lastname) {
+      $("#lastname-validate").hide();
+    }
+    if (!phone) {
+      $("#phone-validate").show();
+      validate = false;
+    }
+    else if (phone) {
+      $("#phone-validate").hide();
+    }
+    if (!checkin) {
+      $("#checkin-validate").show();
+      validate = false;
+    }
+    else if (checkin) {
+      $("#checkin-validate").hide();
+    }
+    if (!checkout) {
+      $("#checkout-validate").show();
+      validate = false;
+    }
+    else if (checkout) {
+      $("#checkout-validate").hide();
+    }
+    if (!room) {
+      $("#room-validate").show();
+      validate = false;
+    }
+    else if (room) {
+      $("#room-validate").hide();
+    }
+    return validate;
+  }
+</script>
