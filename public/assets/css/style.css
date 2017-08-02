@@ -12,12 +12,33 @@ navy: #03122B;
 font-family: 'Fjalla One', sans-serif;
 font-family: 'Lato', sans-serif;*/
 
-body {
-	background-color: #F3F1EA;
+body { 
+  background: url(http://dodskypict.com/D/San-Francisco-Wallpaper-On-Wallpaper-Hd-7-1920x1080.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-img {
-	width: 100%;
+/*body {
+	background: url(https://www.airpano.com/files/San-Francisco-USA/images/image8.jpg);
+}*/
+
+.example-8{
+	background-color: white;
+	opacity: 0.9;
+}
+
+.example-8 .navbar-brand {
+  background: url(/assets/img/LOGOfinal.png) center / contain no-repeat;
+  width: 200px;
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+}
+
+div{
+	opacity: 0.98;
 }
 
 p {
