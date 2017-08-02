@@ -65,7 +65,7 @@ router.post('/room/book/id/:id', function(req, res) {
   });
 });
 
-router.delete("/room/checkout/:id", function(req, res) {
+router.delete("/guest/checkout/:id", function(req, res) {
   // db.Room.findAll({
   //   where: {
   //     id: req.params.id
