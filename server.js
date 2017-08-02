@@ -66,18 +66,9 @@ passport.deserializeUser(function(user, done) {
 
 // we will call this to start the GitHub Login process
 app.get('/auth/github', passport.authenticate('github'));
-
 // GitHub will call this URL
-var html; 
-
 app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
-  	// dump the user for debugging
-	if (req.isAuthenticated()) {
-  	html += "<p>authenticated as user:</p>";
-  	html += "<pre>" + JSON.stringify(req.user, null, 4) + "</pre>";
-	}
-	console.log(html);
     res.redirect('/');
   }
 );
