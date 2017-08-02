@@ -23,8 +23,17 @@ router.post('/tables', function(req, res) {
     num_party: req.body.num_party,
     res_time: req.body.res_time
    }).then(function(data) {
+   	  db.Table.update({
+      GuestId: data.dataValues.id,
+      available: false
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(data) {
     res.redirect('/tables');
   });
+ });
 });
 
 //delete a res

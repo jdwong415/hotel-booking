@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
   var Table = sequelize.define("Table", {
     name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
     },
     phone: {
       type: DataTypes.INTEGER,
@@ -19,6 +19,11 @@ module.exports = function(sequelize, DataTypes) {
     num_party: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    available: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     }
     
   });

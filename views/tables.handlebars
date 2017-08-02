@@ -51,6 +51,7 @@
     <div class="panel-panel default">
         <ul class="list-group">
         {{#each tables}}
+          {{#if this.available}}
           <li class="list-group-item">
             <div class="input-group">
               <p class="lead">Your Reservation has been confirmed. <br>
@@ -63,9 +64,33 @@
             </form>
             </div>
           </li>
+          {{/if}}
         {{/each}}
         </ul>
     </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+        {{#each tables}}
+            {{#if this.available}}
+              <div class="room-reserved">{{this.id}}</div>
+            {{/if}} 
+        {{/each}}
+        </div>
+      </div>
+      <div class="row div-legend">
+        <div class="col-md-12">
+          <div class="sm-room-available"></div>
+          <p>Available</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="sm-room-reserved"></div>
+          <p>Reserved</p>
+        </div>
+      </div>
     </div>
 
     <footer class="footer"></footer>
