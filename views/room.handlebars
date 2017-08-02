@@ -9,8 +9,12 @@
       <p><strong>Status:</strong> <span class="reserved">Reserved</span></p>
     {{/unless}}
     <h3>Current Guest Information:</h3>
-    <p><strong>First Name:</strong> {{this.Guest.first_name}} <strong>Last Name:</strong> {{this.Guest.last_name}}</p>
-    <p><strong>Phone:</strong> {{this.Guest.phone}} <strong>Email:</strong> {{this.Guest.email}}</p>
+    <p><strong>First Name:</strong> {{this.Guest.first_name}}</p>
+    <p><strong>Last Name:</strong> {{this.Guest.last_name}}</p>
+    <p><strong>Phone:</strong> {{this.Guest.phone}}</p>
+    <p><strong>Email:</strong> {{this.Guest.email}}</p>
+    <p><strong>Check-in:</strong> {{this.Guest.checkin}}</p>
+    <p><strong>Check-out:</strong> {{this.Guest.checkout}}</p>
     {{#if this.checkin}}
       <form action="/room/checkout/?_method=DELETE" method="POST">
         <button class="btn btn-secondary" type="submit">Check Out</button>

@@ -74,11 +74,17 @@
         phone.html("<strong>Phone:</strong> " + val.phone);
         var email = $("<p/>");
         email.html("<strong>Email:</strong> " + val.email);
+        var checkin = $("<p/>");
+        checkin.html("<strong>Check-in:</strong> " + val.checkin);
+        var checkout = $("<p/>");
+        checkout.html("<strong>Check-out:</strong> " + val.checkout);
         newDiv.append(roomNumber);
         newDiv.append(firstName);
         newDiv.append(lastName);
         newDiv.append(phone);
         newDiv.append(email);
+        newDiv.append(checkin);
+        newDiv.append(checkout);
         $("#search-rooms").append(newDiv);
       });
     });
