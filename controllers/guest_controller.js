@@ -11,9 +11,9 @@ router.get('/room/book', function(req, res) {
 
 router.post('/room/book', function(req, res) {
   db.Guest.create({
-    first_name: req.body.firstName,
-    last_name: req.body.lastName,
-    phone: req.body.phoneNum,
+    first_name: req.body.firstname,
+    last_name: req.body.lastname,
+    phone: req.body.phone,
     email: req.body.email,
     room_number: req.body.room,
     checkin: req.body.checkin,
@@ -44,9 +44,9 @@ router.get('/room/book/id/:id', function(req, res) {
 
 router.post('/room/book/id/:id', function(req, res) {
   db.Guest.create({
-    first_name: req.body.firstName,
-    last_name: req.body.lastName,
-    phone: req.body.phoneNum,
+    first_name: req.body.firstname,
+    last_name: req.body.lastname,
+    phone: req.body.phone,
     email: req.body.email,
     room_number: req.body.room,
     checkin: req.body.checkin,
@@ -60,7 +60,7 @@ router.post('/room/book/id/:id', function(req, res) {
         id: req.body.room
       }
     }).then(function(result) {
-      res.redirect("/guest/" + result1.dataValues.id);
+      res.redirect("/admin/rooms/id/" + req.body.room);
     });
   });
 });

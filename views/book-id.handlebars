@@ -1,21 +1,21 @@
-<form action="/room/book" method="POST">
+<form action="/room/book/id/:id" method="POST">
 {{#each rooms}}
   <label class="mr-sm-2" for="room"><h1>Booking Room Number #{{this.id}}</h1></label>
   <input type="hidden" name="room" value="{{this.id}}">
 {{/each}}
 <div class="form-group">
-    <label class="mr-sm-2" for="firstName">First Name:</label>
-    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstName" name="firstName" placeholder="First Name">
+    <label class="mr-sm-2" for="firstname">First Name:</label>
+    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstname" name="firstname" placeholder="First Name">
     <p class="validate" id="firstname-validate" style="display:none;">Please enter your first name.</p>
   </div>
   <div class="form-group">
-    <label class="mr-sm-2" for="lastName">Last Name:</label>
-    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="lastName" name="lastName" placeholder="Last Name">
+    <label class="mr-sm-2" for="lastname">Last Name:</label>
+    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="lastname" name="lastname" placeholder="Last Name">
     <p class="validate" id="lastname-validate" style="display:none;">Please enter your last name.</p>
   </div>
   <div class="form-group">
-    <label class="mr-sm-2" for="phoneNum">Phone Number:</label>
-    <input type="tel" class="form-control mb-2 mr-sm-2 mb-sm-0" id="phoneNum" name="phoneNum" placeholder="Phone Number">
+    <label class="mr-sm-2" for="phone">Phone Number:</label>
+    <input type="tel" class="form-control mb-2 mr-sm-2 mb-sm-0" id="phone" name="phone" placeholder="Phone Number">
     <p class="validate" id="phone-validate" style="display:none;">Please enter your phone number.</p>
   </div>
   <div class="form-group">
