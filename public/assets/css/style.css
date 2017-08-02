@@ -27,8 +27,8 @@ body {
 }
 
 .example-8{
-	background-color: white;
-	opacity: 0.7;
+	background-color: #F3F1EA;
+	opacity: 0.9;
 }
 
 .example-8 .navbar-brand {
@@ -39,8 +39,12 @@ body {
   position: absolute;
 }
 
+.navbar-inverse .navbar-nav>li>a:hover{
+	color: black;
+}
+
 div{
-	opacity: 0.95;
+	opacity: 0.98;
 }
 
 p {
@@ -65,6 +69,7 @@ h3 {
 
 a {
 	font-family: 'Lato', sans-serif;
+	font-size: 15px;
 }
 
 label {
@@ -75,10 +80,10 @@ label {
   padding: 14px 24px;
   border: 0 none;
   font-weight: 700;
-  color: white;
+  color: #045675;
   letter-spacing: 1px;
   text-transform: uppercase;
-  background-color: #E5E0CC;
+  background-color: #F3F1EA;
 }
  
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -181,8 +186,12 @@ label {
 }
 
 .div-legend {
-	margin-top: 10px;
+	color: white;
 }
+
+/*#rooms-div {
+	margin-bottom: 10px;
+}*/
 
 div.col-lg-8{
 	background-color: white;
