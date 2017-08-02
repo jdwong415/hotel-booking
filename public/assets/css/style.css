@@ -93,6 +93,21 @@ label {
   background-color: #E5E0CC;
   margin: 10px;
 }
+
+.btn-med {
+  padding: 10px 20px;
+  border: 0 none;
+  font-weight: 680;
+  color: #D4E7E8;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-color: #03122B;
+  margin: 5px;
+}
+
+.btn-med:hover {
+	color: red;
+}
  
 .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
