@@ -59,9 +59,9 @@ router.get('/admin/tables', function(req, res) {
 });
 
 router.post('/admin/tables-admin', function(req, res) {
-  db.Guest.findAll({
+  db.Table.findAll({
     where: {
-      first_name: req.body.name
+      name: req.body.name
     }
   }).then(function(result) {
     res.json(result);
