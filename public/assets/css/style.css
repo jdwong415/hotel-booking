@@ -1,8 +1,6 @@
 /*===================Color Scheme=====================
-egg blue: #d0e4ef;
-
 grey blue: #D4E7E8;
-creme: #F3F1EA
+creme: #F3F1EA;
 beige: #E5E0CC;
 denim: #045675;
 navy: #03122B;
@@ -26,9 +24,9 @@ body {
   background-size: cover;
 }
 
-.example-8{
+.example-8, .bookroom{
 	background-color: #F3F1EA;
-	opacity: 0.9;
+	opacity: 0.96;
 }
 
 .example-8 .navbar-brand {
@@ -83,7 +81,8 @@ label {
   color: #045675;
   letter-spacing: 1px;
   text-transform: uppercase;
-  background-color: #F3F1EA;
+  background-color: #E5E0CC;
+  margin: 10px;
 }
  
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -91,7 +90,7 @@ label {
 }
 
 .btn-lg.round {
-	border-radius: 24px;
+	margin: 15px;
 }
 
 #header-row {
@@ -101,7 +100,7 @@ label {
 	background-color: white;
 }
 
-#body-cont {
+#body-cont, .bookroom {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	height: 300px;
@@ -188,10 +187,6 @@ label {
 .div-legend {
 	color: white;
 }
-
-/*#rooms-div {
-	margin-bottom: 10px;
-}*/
 
 div.col-lg-8{
 	background-color: white;
