@@ -30,6 +30,8 @@ body {
 
 .main {
 	background-color: rgba(255, 255, 255, 0.8);
+	margin-bottom: 15px;
+	border-radius: 15px;
 }
 
 .example-8 {
@@ -212,4 +214,17 @@ div.col-lg-8{
 
 .validate {
   color: red;
+}
+
+/*Media query for small phone screen*/
+@media (min-width: 576px) and (max-width: 767px) { 
+	.main{
+		margin-left: 10px;
+		margin-right: 10px;
+		padding-top: 10px;
+	}
+
+	.navbar-inverse .navbar-nav>li{
+		color: black;
+	}
 }
