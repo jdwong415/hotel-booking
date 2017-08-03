@@ -31,6 +31,16 @@ module.exports = function(sequelize, DataTypes) {
     },
     checkout: {
       type: DataTypes.DATEONLY
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
+  }, {
+    getterMethods: {
+      isAdmin: function() {
+        return this.getDataValue('isAdmin');
+      }
     }
   });
 

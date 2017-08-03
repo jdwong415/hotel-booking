@@ -15,6 +15,7 @@
 
     <div class="row">
     {{!--adding a reservation --}}
+    <div class="row">
     <div class="col-md-8 col-md-offset-2">
 
       <form class="create-update-form" action="/tables" method="POST">
@@ -78,25 +79,24 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
-        {{#each tables}}
-            {{#if this.available}}
-              <div class="room-reserved">{{this.id}}</div>
-            {{/if}} 
-        {{/each}}
-        </div>
+      <div class="col-md-12">
+      {{#each tables}}
+          {{#if this.available}}
+            <div class="room-reserved">{{this.id}}</div>
+          {{/if}} 
+      {{/each}}
       </div>
-      <div class="row div-legend">
-        <div class="col-md-12">
-          <div class="sm-room-available"></div>
-          <p>Available</p>
-        </div>
+    </div>
+    <div class="row div-legend">
+      <div class="col-md-12">
+        <div class="sm-room-available"></div>
+        <p>Available</p>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="sm-room-reserved"></div>
-          <p>Reserved</p>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="sm-room-reserved"></div>
+        <p>Reserved</p>
       </div>
 
     <footer class="footer"></footer>
