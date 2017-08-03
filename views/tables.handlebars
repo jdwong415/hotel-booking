@@ -13,10 +13,11 @@
       </div>
     </div>
 
-
+    <div class="row">
     {{!--adding a reservation --}}
     <div class="row">
     <div class="col-md-8 col-md-offset-2">
+
       <form class="create-update-form" action="/tables" method="POST">
 
       {{!-- section to add tables --}}
@@ -40,7 +41,7 @@
 
       <div class="form-group col-xs-4">
         <label for="res-time">Reservation Time</label>
-        <input type="number" class="form-control" id="res-time" name="res_time" placeholder="Format: hhmm">
+        <input type="time" class="form-control" id="res-time" name="res_time" placeholder="07:30PM">
         <p class="validate" id="res-time-validate" style="display:none;">Please enter a reservation time. (hhmm)</p>
       </div>
 
@@ -97,7 +98,6 @@
         <div class="sm-room-reserved"></div>
         <p>Reserved</p>
       </div>
-    </div>
 
     <footer class="footer"></footer>
 
