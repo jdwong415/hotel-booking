@@ -9,12 +9,17 @@
   <p><strong>Check-out:</strong> {{this.checkout}}</p>
   
   <form action="/guest/checkout/?_method=PUT" method="POST">
-    <button type="submit" class="btn btn-big btn-secondary btn-lg" id="book-room">Check Out</button>
+    <button type="submit" class="btn btn-med btn-secondary btn-lg" id="book-room">Check Out</button>
   </form>
 
   <a href="/tables">
-    <button type="button" class="btn btn-big btn-secondary btn-lg" id="reservation">Restaurant Reservation</button>
+    <button type="button" class="btn btn-med btn-secondary btn-lg" id="reservation">Restaurant Reservation</button>
   </a>
 
-  <button type="button" class="btn btn-big btn-secondary btn-lg" id="things-nearby">Things Nearby</button>
+  <button type="button" class="btn btn-med btn-secondary btn-lg" id="things-nearby">Things Nearby</button>
+  <br>
+  <a href="/guest/logout">
+    <button type="button" class="btn btn-med btn-secondary btn-lg" id="reservation">Sign Out</button>
+  </a>
+<div class="row" style="padding-bottom:20px;"></div>
 {{/each}}
