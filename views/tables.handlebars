@@ -46,7 +46,7 @@
         <input type="number" class="form-control" id="res-number" name="num_party" placeholder="Number in Party">
         <p class="validate" id="num-party-validate" style="display:none;">Please enter number in party.</p>
       </div>
-      <button type="submit" class="btn btn-big btn-secondary btn-lg" onClick="return empty()">Submit</button>
+      <button type="submit" class="btn btn-med btn-secondary btn-lg" onClick="return empty()">Submit</button>
       </form> <br>
     </div>
     </div>
@@ -64,7 +64,7 @@
               Number in Party: {{this.num_party}} <br>
               Reservation Time: {{this.res_time}}</p>
               <form action="/tables/{{this.id}}?_method=DELETE" method="POST">
-              <button type="submit" class="btn btn-big btn-secondary btn-lg" id="trash">Cancel Resv<span class="  glyphicon glyphicon-trash"></span></button>
+              <button type="submit" class="btn btn-big btn-secondary btn-lg" id="trash">Cancel Res<span class="  glyphicon glyphicon-trash"></span></button>
             </form>
             </div>
           </li>
