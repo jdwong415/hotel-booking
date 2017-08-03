@@ -1,25 +1,54 @@
-<div id="openweathermap-widget-2" align="right"></div>
+<!-- weather widget start -->
+<div style="margin-top:15px; float:right;" id="m-booked-bl-simple-95855" align="right"> 
+  <div class="booked-wzs-160-110 weather-customize" style="background-color:#78afeb;width:160px;" id="width1" align="right"> 
+  <div class="booked-wzs-160-110_in"> <a target="_blank" class="booked-wzs-top-160-110" href="http://www.booked.net/"><img src="//s.bookcdn.com/images/letter/s5.gif" alt="http://www.booked.net/" /></a> 
+  <div class="booked-wzs-160-data"> 
+  	<div class="booked-wzs-160-left-img wrz-18"></div> 
+  	<div class="booked-wzs-160-right"> 
+  	  <div class="booked-wzs-day-deck"> 
+  		<div class="booked-wzs-day-val"> 
+  	  <div class="booked-wzs-day-number"><span class="plus">+</span>73</div>
+      <div class="booked-wzs-day-dergee"> 
+    	<div class="booked-wzs-day-dergee-val">&deg;</div> 
+    	<div class="booked-wzs-day-dergee-name">F</div> 
+      </div> 
+    </div> 
+    <div class="booked-wzs-day"> 
+      <div class="booked-wzs-day-d"><span class="plus">+</span>73&deg;</div> 
+      <div class="booked-wzs-day-n"><span class="plus">+</span>59&deg;</div> 
+    </div> 
+  </div> 
+  <div class="booked-wzs-160-info"> 
+    <div class="booked-wzs-160-city smolest">San Francisco</div> 
+    <div class="booked-wzs-160-date">Thursday, 03</div> 
+   </div> 
+   </div> 
+  </div> 
+ 	<a target="_blank" href="http://www.booked.net/weather/san-francisco-18163" class="booked-wzs-bottom-160-110"> <div class="booked-wzs-center"><span class="booked-wzs-bottom-l"> See 7-Day Forecast</span></div> </a> 
+  </div> 
+ </div> 
+</div>
 
 <div class="row">
-	<div class="col-lg-12">
+	<div class="col-lg-9">
 		<div id="body-cont">
-			<div class="row">
-				<div class="col-lg-6">
-					<a href="/room/book">
-						<button type="button" class="btn btn-big btn-secondary btn-lg" style="float:left;">Book Room</button>
-					</a>
-					<a href="/guest/login">
-						<button type="button" class="btn btn-big btn-secondary btn-lg" style="float:left;">Login</button>
-					</a>
-					<a href="/yelp">
-						<button type="button" class="btn btn-big btn-secondary btn-lg" style="float:left;">Events Nearby</button>
-					</a>
-				</div>
-				<div class="col-lg-3"></div>
-			</div>
+			<a href="/room/book">
+				<button type="button" class="btn btn-med btn-secondary btn-lg" style="float:left;">Book Room</button>
+			</a>
+			<a href="/guest/login">
+				<button type="button" class="btn btn-med btn-secondary btn-lg" style="float:left;">Login</button>
+			</a>
+			<a href="/yelp">
+				<button type="button" class="btn btn-med btn-secondary btn-lg" style="float:left;">Events in This Area!</button>
+			</a>	
 		</div>
 	</div>
 </div>
 
 
-<script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 2,cityid: '5391959',appid: '304cc0a45df3431fdcaf95bc310396b0',units: 'imperial',containerid: 'openweathermap-widget-2',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "http://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator-2.0.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
+
+<script type="text/javascript"> 
+	var css_file=document.createElement("link"); css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href",'https://s.bookcdn.com/css/w/booked-wzs-widget-160.css?v=0.0.1'); document.getElementsByTagName("head")[0].appendChild(css_file); function setWidgetData(data) { if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = document.getElementById('m-booked-bl-simple-95855'); if(objMainBlock !== null) { var copyBlock = document.getElementById('m-bookew-weather-copy-'+data.results[i].widget_type); objMainBlock.innerHTML = data.results[i].html_code; if(copyBlock !== null) objMainBlock.appendChild(copyBlock); } } } else { alert('data=undefined||data.results is empty'); } } 
+</script> 
+<script type="text/javascript" charset="UTF-8" src="https://widgets.booked.net/weather/info?action=get_weather_info&ver=6&cityID=18163&type=1&scode=124&ltid=3458&domid=w209&anc_id=85968&cmetric=0&wlangID=1&color=78afeb&wwidth=160&header_color=ffffff&text_color=333333&link_color=08488D&border_form=1&footer_color=ffffff&footer_text_color=333333&transparent=0"></script>
+<!-- weather widget end -->
