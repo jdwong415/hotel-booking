@@ -216,7 +216,7 @@ div.col-lg-8{
   color: red;
 }
 
-/**/
+/*Media query for small phone screen*/
 @media (min-width: 576px) and (max-width: 767px) { 
 	.main{
 		margin-left: 10px;
