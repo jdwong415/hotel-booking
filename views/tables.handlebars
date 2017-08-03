@@ -1,20 +1,17 @@
 <div class="container">
 
-    <div class="jumbotron" style="margin-right: 25px; margin-top: 25px;">
-      <h1 class="text-center"><img style="height: 120px" src="assets/img/og-favicon.png"> Chez Jerome</h1><br>
-      <h2 class="text-center">Bienvenue, et bon apetit!</h2>
+    <div style="margin-right: 25px; margin-top: 25px;">
+      <h2 class="text-center"><img style="height: 120px" src="assets/img/og-favicon.png"> Chez Jerome</h1><br>
+      <h4 class="text-center">Bienvenue, et bon apetit!</h2>
       <hr>
-      <h2 class="text-center">We have limited tables! Please make your reservation well in advance.</h2>
+      <h4 class="text-center">We have limited tables! Please make your reservation well in advance.</h2>
       <br>
 
-      <div class="text-center">
-        <a href="/tables"><button type="button" class="btn btn-med btn-secondary btn-lg"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
-        <a href="/tables/"><button type="button" class="btn btn-med btn-secondary btn-lg"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
-      </div>
     </div>
 
     <div class="row">
     {{!--adding a reservation --}}
+    <div class="row">
     <div class="col-md-8 col-md-offset-2">
 
       <form class="create-update-form" action="/tables" method="POST">
@@ -78,25 +75,24 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
-        {{#each tables}}
-            {{#if this.available}}
-              <div class="room-reserved">{{this.id}}</div>
-            {{/if}} 
-        {{/each}}
-        </div>
+      <div class="col-md-12">
+      {{#each tables}}
+          {{#if this.available}}
+            <div class="room-reserved">{{this.id}}</div>
+          {{/if}} 
+      {{/each}}
       </div>
-      <div class="row div-legend">
-        <div class="col-md-12">
-          <div class="sm-room-available"></div>
-          <p>Available</p>
-        </div>
+    </div>
+    <div class="row div-legend">
+      <div class="col-md-12">
+        <div class="sm-room-available"></div>
+        <p>Available</p>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="sm-room-reserved"></div>
-          <p>Reserved</p>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="sm-room-reserved"></div>
+        <p>Reserved</p>
       </div>
 
     <footer class="footer"></footer>

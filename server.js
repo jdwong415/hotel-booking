@@ -38,7 +38,8 @@ app.use(require('./controllers/manager_controller'));
 app.use(require('./controllers/table_controller'));
 
 require('./controllers/guest_auth_controller')(app, passport);
-require('./config/passport/passport_guest.js')(passport);
+require('./controllers/admin_auth_controller')(app, passport);
+require('./config/passport/passport.js')(passport);
 
 // Sync models then start the server to begin listening
 db.sequelize.sync().then(function() {

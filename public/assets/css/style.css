@@ -35,8 +35,7 @@ body {
 }
 
 .example-8 {
-	background-color: #F3F1EA;
-	opacity: 0.96;
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 .example-8 .navbar-brand {
@@ -104,7 +103,7 @@ label {
 }
 
 .btn-med:hover {
-	color: red;
+	color: #E5E0CC;
 }
  
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -203,9 +202,7 @@ label {
 }
 
 div.col-lg-8{
-	background-color: white;
 	padding: 20px;
-
 }
 
 .legend {
