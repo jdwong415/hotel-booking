@@ -34,12 +34,15 @@ app.use(express.static('public'));
 // Load routes
 app.use(require('./controllers/index_controller'));
 app.use(require('./controllers/guest_controller'));
-app.use(require('./controllers/manager_controller'));
 app.use(require('./controllers/table_controller'));
 
 require('./controllers/guest_auth_controller')(app, passport);
 require('./controllers/admin_auth_controller')(app, passport);
 require('./config/passport/passport.js')(passport);
+
+app.use('/', function(req, res) {
+  res.render('index');
+});
 
 // Sync models then start the server to begin listening
 db.sequelize.sync().then(function() {

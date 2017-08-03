@@ -6,7 +6,7 @@ module.exports = function(app, passport) {
   // HOME PAGE (with login links) ========
   // =====================================
   app.get('/admin', function(req, res) {
-    res.render('adminindex'); // load the index file
+    res.redirect('/admin/login'); // load the index file
   });
 
   // =====================================
@@ -20,7 +20,7 @@ module.exports = function(app, passport) {
   // process the login form
   // app.post('/login', do all our passport stuff here);
   app.post('/admin/login', passport.authenticate('admin-login', {
-    successRedirect : '/manager', // redirect to the secure profile section
+    successRedirect : '/admin/menu', // redirect to the secure profile section
     failureRedirect : '/admin/login' // redirect back to the signup page if there is an error
   }));
 
@@ -34,11 +34,11 @@ module.exports = function(app, passport) {
   // process the signup form
   // app.post('/signup', do all our passport stuff here);
   app.post('/admin/signup', passport.authenticate('admin-signup', {
-    successRedirect : '/manager', // redirect to the secure profile section
+    successRedirect : '/admin/menu', // redirect to the secure profile section
     failureRedirect : '/admin/signup' // redirect back to the signup page if there is an error
   }));
 
-  app.get('/manager', isLoggedIn, function(req, res) {
+  app.get('/admin/menu', isLoggedIn, function(req, res) {
     res.render('manager');
   });
 
@@ -74,6 +74,39 @@ module.exports = function(app, passport) {
     }).then(function(result) {
       res.render("room", {
         rooms: result
+      });
+    });
+  });
+
+  app.get('/admin/book/id/:id', isLoggedIn, function(req, res) {
+    db.Room.findAll({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(result) {
+      res.render("book-id", {rooms: result});
+    });
+  });
+
+  app.post('/admin/book/id/:id', isLoggedIn, function(req, res) {
+    db.Guest.create({
+      first_name: req.body.firstname,
+      last_name: req.body.lastname,
+      phone: req.body.phone,
+      email: req.body.email,
+      room_number: req.body.room,
+      checkin: req.body.checkin,
+      checkout: req.body.checkout
+    }).then(function(result1) {
+      db.Room.update({
+        GuestId: result1.dataValues.id,
+        available: false
+      }, {
+        where: {
+          id: req.body.room
+        }
+      }).then(function(result) {
+        res.redirect("/admin/rooms/id/" + req.body.room);
       });
     });
   });
@@ -115,19 +148,49 @@ module.exports = function(app, passport) {
     });
   });
 
+  //table view for manager
+  app.get('/admin/tables', isLoggedIn, function(req, res) {
+    db.Table.findAll({}).then(function(result) {
+      res.render("tables-admin", {
+        tables: result
+      });
+    });
+  });
+
+  app.post('/admin/tables-admin', isLoggedIn, function(req, res) {
+    db.Table.findAll({
+      where: {
+        name: req.body.name
+      }
+    }).then(function(result) {
+      res.json(result);
+    });
+  });
+
+  app.get('/admin/tables/id/:id', isLoggedIn, function(req, res) {
+    db.Table.findAll({
+      where: {
+        id: req.params.id
+      },
+    }).then(function(result) {
+      res.render("table", {
+        tables: result
+      });
+    });
+  });
+
   // =====================================
   // LOGOUT ==============================
   // =====================================
-  app.get('/logout', function(req, res) {
+  app.get('/admin/logout', isLoggedIn, function(req, res) {
     req.session.destroy(function(err) {
-      res.redirect('/');
+      res.redirect('/admin');
     });
   });
 }
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
-
   // if user is authenticated in the session, carry on 
   if (req.isAuthenticated())
     return next();
