@@ -214,3 +214,16 @@ div.col-lg-8{
 .validate {
   color: red;
 }
+
+/**/
+@media (min-width: 576px) and (max-width: 767px) { 
+	.main{
+		margin-left: 10px;
+		margin-right: 10px;
+		padding-top: 10px;
+	}
+
+	.navbar-inverse .navbar-nav>li{
+		color: black;
+	}
+}
