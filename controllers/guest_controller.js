@@ -27,7 +27,7 @@ router.post('/room/book', function(req, res) {
         id: req.body.room
       }
     }).then(function(result) {
-      res.redirect("/guest/" + result1.dataValues.id);
+      res.redirect("/guest/id/" + result1.dataValues.id);
     });
   });
 });
@@ -65,24 +65,26 @@ router.post('/room/book/id/:id', function(req, res) {
   });
 });
 
-router.delete("/guest/checkout/:id", function(req, res) {
-  // db.Room.findAll({
-  //   where: {
-  //     id: req.params.id
-  //   }
-  // }).then(function(result) {
-  //   result.forEach(function(val) {
-  //     customer.destroy({
-  //       where: {
-  //         id: val.dataValues.customerId
-  //       }
-  //     });
-  //   });
-  //   res.redirect("/");
-  // });
+router.put("/guest/checkout/id/:id", function(req, res) {
+  db.Room.update({
+    available: true,
+    checkin: false
+  }, {
+    where: {
+      GuestId: req.params.id
+    }
+  }).then(function(result2) {
+    db.Guest.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(result) {
+      res.redirect("/");
+    });
+  });
 });
 
-router.get('/guest/:id', function(req, res) {
+router.get('/guest/id/:id', function(req, res) {
   db.Guest.findAll({
     where: {
       id: req.params.id
@@ -95,7 +97,7 @@ router.get('/guest/:id', function(req, res) {
   });
 });
 
-router.post('/guest/:id', function(req, res) {
+router.post('/guest/id/:id', function(req, res) {
   db.Guest.findAll({
     where: {
       email: req.body.email,
@@ -103,7 +105,7 @@ router.post('/guest/:id', function(req, res) {
       room_number: req.body.room
     }
   }).then(function(result) {
-    res.redirect('/guest/' + result[0].dataValues.id);
+    res.redirect('/guest/id/' + req.params.id);
   }).catch(function(err) {
     res.redirect('/guest/login');
   });
