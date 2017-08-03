@@ -43,13 +43,14 @@
     <input type="date" class="form-control mb-2 mr-sm-2 mb-sm-0" id="checkout" name="checkout">
     <p class="validate" id="checkout-validate" style="display:none;">Please select the day you will check out.</p>
   </div>
-  <button type="submit" id="book-room" class="btn btn-med btn-secondary btn-lg" onClick="return empty()">Book</button>
-    <form action="/" method="GET">
-      <button class="btn btn-big btn-secondary btn-lg" type="submit" id="go-back">Back to Home</button>
-    </form>
+  <button type="submit" id="book-room" class="btn btn-big btn-secondary btn-lg" onClick="return empty()">Book</button>
 </form>
 
-
+<div>
+  <form action="/" method="GET">
+    <button type="submit" id="go-back">Back to Home</button>
+  </form>
+</div>
 <script>
   // Prevent empty input
   function empty() {
