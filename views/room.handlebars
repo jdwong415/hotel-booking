@@ -1,14 +1,13 @@
 {{#each rooms}}
-  <p><strong>Room #{{this.id}}</strong></p>
-
+  <h3>Current Room Information:</h3>
+  <h4><strong>Room #{{this.id}}</strong></h4>
   {{#unless this.available}}
     {{#if this.checkin}}
-      <p><strong>Status:</strong> <span class="occupied">Occupied</span></p>
+      <h4><strong>Status:</strong> <span class="occupied">Occupied</span></h4>
     {{/if}}
     {{#unless this.checkin}}
-      <p><strong>Status:</strong> <span class="reserved">Reserved</span></p>
+      <h4><strong>Status:</strong> <span class="reserved">Reserved</span></h4>
     {{/unless}}
-    <h3>Current Guest Information:</h3>
     <p><strong>First Name:</strong> {{this.Guest.first_name}}</p>
     <p><strong>Last Name:</strong> {{this.Guest.last_name}}</p>
     <p><strong>Phone:</strong> {{this.Guest.phone}}</p>
@@ -28,7 +27,7 @@
   {{/unless}}
 
   {{#if this.available}}
-    <p><strong>Status:</strong> <span class="available">Available</span></p>
+    <h4><strong>Status:</strong> <span class="available">Available</span></h4>
     <a href="/room/book/id/{{this.id}}"><button class="btn btn-secondary">Book This Room</button></a>
   {{/if}}
 {{/each}}

@@ -2,21 +2,16 @@
   <div class="col-lg-2"></div>
   <div class="col-lg-8">
     <h2 class="text-center">Guest Login</h2>
-    <form action="/guest/id/:id" method="POST">
+    <form action="/guest/login" method="POST">
       <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-        <p class="validate" id="email-validate" style="display:none;">Please enter your email.</p>
+        <label for="room">Room Number</label>
+        <input type="number" class="form-control" id="room" name="room" placeholder="Room Number">
+        <p class="validate" id="room-validate" style="display:none;">Please enter your room number.</p>
       </div>
       <div class="form-group">
         <label for="lastname">Last Name</label>
-        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name">
+        <input type="password" class="form-control" id="lastname" name="lastname" placeholder="Last Name">
         <p class="validate" id="name-validate" style="display:none;">Please enter your last name.</p>
-      </div>
-      <div class="form-group">
-        <label for="room">Room Number</label>
-        <input type="number" class="form-control" id="room" name="room" placeholder="Room #">
-        <p class="validate" id="room-validate" style="display:none;">Please enter your room number.</p>
       </div>
       <button type="submit" class="btn btn-default" onClick="return empty()">Login</button>
     </form>
@@ -26,18 +21,10 @@
 <script>
   // Prevent empty input
   function empty() {
-    var email = $("#email").val();
     var name = $("#lastname").val();
     var room = $("#room").val();
     var validate = true;
 
-    if (!email) {
-      $("#email-validate").show();
-      validate = false;
-    }
-    else if (email) {
-      $("#email-validate").hide();
-    }
     if (!name) {
       $("#name-validate").show();
       validate = false;
