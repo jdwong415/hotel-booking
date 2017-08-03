@@ -21,31 +21,31 @@
       {{!-- section to add tables --}}
       <div class="form-group col-xs-4">
         <label for="res-name">Name</label>
-        <input type="text" class="form-control" id="res-name" name="name">
+        <input type="text" class="form-control" id="res-name" name="name" placeholder="Name">
         <p class="validate" id="name-validate" style="display:none;">Please enter your name.</p>
       </div>
 
       <div class="form-group col-xs-4">
         <label for="res-phone">Phone Number</label>
-        <input type="text" class="form-control" id="res-phone" name="phone">
+        <input type="tel" class="form-control" id="res-phone" name="phone" placeholder="Phone Number">
         <p class="validate" id="phone-validate" style="display:none;">Please enter your phone number.</p>
       </div>
 
       <div class="form-group col-xs-4">
         <label for="email">Email</label>
-        <input type="text" class="form-control" id="res-email" name="email" placeholder="youremail@domain.com">
+        <input type="email" class="form-control" id="res-email" name="email" placeholder="Email">
         <p class="validate" id="email-validate" style="display:none;">Please enter your email.</p>
       </div>
 
       <div class="form-group col-xs-4">
         <label for="res-time">Reservation Time</label>
-        <input type="text" class="form-control" id="res-time" name="res_time">
+        <input type="number" class="form-control" id="res-time" name="res_time" placeholder="Format: hhmm">
         <p class="validate" id="res-time-validate" style="display:none;">Please enter a reservation time. (hhmm)</p>
       </div>
 
       <div class="form-group col-xs-4">
         <label for="res-number">Number in Party</label>
-        <input type="text" class="form-control" id="res-number" name="num_party">
+        <input type="number" class="form-control" id="res-number" name="num_party" placeholder="Number in Party">
         <p class="validate" id="num-party-validate" style="display:none;">Please enter number in party.</p>
       </div>
       <button type="submit" class="btn btn-big btn-secondary btn-lg" onClick="return empty()">Submit</button>
