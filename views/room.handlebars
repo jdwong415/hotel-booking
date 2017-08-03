@@ -16,20 +16,20 @@
     <p><strong>Check-out:</strong> {{this.Guest.checkout}}</p>
     {{#if this.checkin}}
       <form action="/admin/checkout/id/{{this.id}}/?_method=PUT" method="POST">
-        <button class="btn btn-secondary" type="submit">Check Out</button>
+        <button class="btn btn-default" type="submit">Check Out</button>
       </form>
     {{/if}}
     {{#unless this.checkin}}
       <form action="/admin/checkin/id/{{this.id}}/?_method=PUT" method="POST">
-        <button class="btn btn-secondary" type="submit">Check In</button>
+        <button class="btn btn-default" type="submit">Check In</button>
       </form>
     {{/unless}}
   {{/unless}}
-
   {{#if this.available}}
     <h4><strong>Status:</strong> <span class="available">Available</span></h4>
-    <a href="/admin/book/id/{{this.id}}"><button class="btn btn-secondary">Book This Room</button></a>
+    <form action="/admin/book/id/{{this.id}}" method="GET"><button class="btn btn-default">Book This Room</button></form>
   {{/if}}
 {{/each}}
 <br>
-<a href="/admin/rooms"><button class="btn btn-secondary">Go Back</button></a>
+<a href="/admin/rooms"><button class="btn btn-default">Go Back</button></a>
+<div class="row" style="padding-bottom:20px;"></div>
