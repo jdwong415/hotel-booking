@@ -1,9 +1,9 @@
-<form action="/room/book/id/:id" method="POST">
-{{#each rooms}}
-  <label class="mr-sm-2" for="room"><h1>Booking Room Number #{{this.id}}</h1></label>
-  <input type="hidden" name="room" value="{{this.id}}">
-{{/each}}
-<div class="form-group">
+<form style="padding: 20px;" action="/admin/book/id/:id" method="POST">
+  {{#each rooms}}
+    <label class="mr-sm-2" for="room"><h2>Booking Room Number #{{this.id}}</h2></label>
+    <input type="hidden" name="room" value="{{this.id}}">
+  {{/each}}
+  <div class="form-group">
     <label class="mr-sm-2" for="firstname">First Name:</label>
     <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstname" name="firstname" placeholder="First Name">
     <p class="validate" id="firstname-validate" style="display:none;">Please enter your first name.</p>
@@ -33,7 +33,7 @@
     <input type="date" class="form-control mb-2 mr-sm-2 mb-sm-0" id="checkout" name="checkout">
     <p class="validate" id="checkout-validate" style="display:none;">Please select the day you will check out.</p>
   </div>
-  <button type="submit" id="book-room" class="btn-lg round" onClick="return empty()">Book</button>
+  <button type="submit" id="book-room" class="btn btn-big btn-secondary btn-lg" onClick="return empty()">Book</button>
 </form>
 
 <div>

@@ -22,7 +22,7 @@ module.exports = function(app, passport) {
     });
   });
 
-  app.get('/guest/logout', function(req, res) {
+  app.get('/guest/logout', isLoggedIn, function(req, res) {
     req.session.destroy(function(err) {
       res.redirect('/');
     });
@@ -34,6 +34,27 @@ module.exports = function(app, passport) {
       failureRedirect: '/guest/login'
     }
   ));
+
+  app.put("/guest/checkout", isLoggedIn, function(req, res) {
+    req.session.destroy(function(err) {
+      db.Room.update({
+        available: true,
+        checkin: false
+      }, {
+        where: {
+          GuestId: req.user.id
+        }
+      }).then(function(result) {
+        db.Guest.destroy({
+          where: {
+            id: req.user.id
+          }
+        }).then(function(result2) {
+          res.redirect("/");
+        });
+      });
+    });
+  });
 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())

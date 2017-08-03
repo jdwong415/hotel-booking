@@ -13,7 +13,6 @@ module.exports = function(passport) {
   });
 
   passport.deserializeUser(function(id, done) {
-    console.log(id);
     if (!id.isAdmin) {
       Guest.findById(id.id).then(function(user) {
         if (user) {
@@ -34,7 +33,6 @@ module.exports = function(passport) {
         }
       });
     }
-    console.log(id);
   });
 
   // Guest Signup
