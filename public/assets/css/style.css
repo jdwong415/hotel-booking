@@ -1,8 +1,6 @@
 /*===================Color Scheme=====================
-egg blue: #d0e4ef;
-
 grey blue: #D4E7E8;
-creme: #F3F1EA
+creme: #F3F1EA;
 beige: #E5E0CC;
 denim: #045675;
 navy: #03122B;
@@ -26,17 +24,27 @@ body {
   background-size: cover;
 }
 
-.example-8{
-	background-color: white;
-	opacity: 0.7;
+#search-form {
+	margin-top: 20px;
+}
+
+.main {
+	background-color: rgba(255, 255, 255, 0.8);
+	margin-bottom: 10px;
+}
+
+.example-8 {
+	background-color: #F3F1EA;
+	opacity: 0.96;
 }
 
 .example-8 .navbar-brand {
   background: url(/assets/img/LOGOfinal.png) center / contain no-repeat;
   width: 200px;
-  transform: translateX(-50%);
-  left: 50%;
-  position: absolute;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover{
+	color: black;
 }
 
 div{
@@ -53,20 +61,49 @@ h1 {
 	font-size: 25px;
 }
 
+h2 {
+	font-family: 'Fjalla One', sans-serif;
+}
+
 h3 {
 	font-family: 'Fjalla One', sans-serif;
 	color: #045675;
 	font-size: 30px;
 }
 
+a {
+	font-family: 'Lato', sans-serif;
+	font-size: 15px;
+}
+
+label {
+	font-family: 'Lato', sans-serif;
+}
+
 .btn-big {
   padding: 14px 24px;
   border: 0 none;
   font-weight: 700;
-  color: white;
+  color: #045675;
   letter-spacing: 1px;
   text-transform: uppercase;
   background-color: #E5E0CC;
+  margin: 10px;
+}
+
+.btn-med {
+  padding: 10px 20px;
+  border: 0 none;
+  font-weight: 680;
+  color: #D4E7E8;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-color: #03122B;
+  margin: 5px;
+}
+
+.btn-med:hover {
+	color: red;
 }
  
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -74,7 +111,7 @@ h3 {
 }
 
 .btn-lg.round {
-	border-radius: 24px;
+	margin: 15px;
 }
 
 #header-row {
@@ -169,7 +206,13 @@ h3 {
 }
 
 .div-legend {
-	margin-top: 10px;
+	color: white;
+}
+
+div.col-lg-8{
+	background-color: white;
+	padding: 20px;
+
 }
 
 .legend {

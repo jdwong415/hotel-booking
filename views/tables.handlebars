@@ -1,14 +1,15 @@
 <div class="container">
 
-    <div class="jumbotron">
-      <h1 class="text-center"><span class="glyphicon glyphicon-grain"></span> Chez Jerome</h1>
+    <div class="jumbotron" style="margin-right: 25px; margin-top: 25px;">
+      <h1 class="text-center"><img style="height: 120px" src="assets/img/og-favicon.png"> Chez Jerome</h1><br>
+      <h2 class="text-center">Bienvenue, et bon apetit!</h2>
       <hr>
-      <h2 class="text-center">We have limited tables! Book your seat before they all are gone!</h2>
+      <h2 class="text-center">We have limited tables! Please make your reservation well in advance.</h2>
       <br>
 
       <div class="text-center">
-        <a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
-        <a href="/tables/"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
+        <a href="/tables"><button type="button" class="btn btn-med btn-secondary btn-lg"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
+        <a href="/tables/"><button type="button" class="btn btn-med btn-secondary btn-lg"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
       </div>
     </div>
 
@@ -19,37 +20,36 @@
       <form class="create-update-form" action="/tables" method="POST">
 
       {{!-- section to add tables --}}
-      <div class="form-group">
+      <div class="form-group col-xs-4">
         <label for="res-name">Name</label>
-        <input type="text" class="form-control" id="res-name" name="name">
+        <input type="text" class="form-control" id="res-name" name="name" placeholder="Name">
         <p class="validate" id="name-validate" style="display:none;">Please enter your name.</p>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-xs-4">
         <label for="res-phone">Phone Number</label>
-        <input type="text" class="form-control" id="res-phone" name="phone">
+        <input type="tel" class="form-control" id="res-phone" name="phone" placeholder="Phone Number">
         <p class="validate" id="phone-validate" style="display:none;">Please enter your phone number.</p>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-xs-4">
         <label for="email">Email</label>
-        <input type="text" class="form-control" id="res-email" name="email">
+        <input type="email" class="form-control" id="res-email" name="email" placeholder="Email">
         <p class="validate" id="email-validate" style="display:none;">Please enter your email.</p>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-xs-4">
         <label for="res-time">Reservation Time</label>
-        <input type="time" class="form-control" id="res-time" name="res_time">
+        <input type="time" class="form-control" id="res-time" name="res_time" placeholder="07:30PM">
         <p class="validate" id="res-time-validate" style="display:none;">Please enter a reservation time. (hhmm)</p>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-xs-4">
         <label for="res-number">Number in Party</label>
-        <input type="text" class="form-control" id="res-number" name="num_party">
+        <input type="number" class="form-control" id="res-number" name="num_party" placeholder="Number in Party">
         <p class="validate" id="num-party-validate" style="display:none;">Please enter number in party.</p>
       </div>
-
-      <button type="submit" class="btn btn-primary submit"  onClick="return empty()">Submit</button>
+      <button type="submit" class="btn btn-big btn-secondary btn-lg" onClick="return empty()">Submit</button>
       </form> <br>
     </div>
     </div>
@@ -67,7 +67,7 @@
               Number in Party: {{this.num_party}} <br>
               Reservation Time: {{this.res_time}}</p>
               <form action="/tables/{{this.id}}?_method=DELETE" method="POST">
-              <button type="submit" class="btn btn-danger btn-md" id="trash">Cancel Resv<span class="  glyphicon glyphicon-trash"></span></button>
+              <button type="submit" class="btn btn-big btn-secondary btn-lg" id="trash">Cancel Resv<span class="  glyphicon glyphicon-trash"></span></button>
             </form>
             </div>
           </li>
@@ -151,4 +151,3 @@
     return validate;
   }
 </script>
-
