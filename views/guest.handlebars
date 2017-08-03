@@ -1,19 +1,19 @@
 {{#each guest}}
-    <h3>Current Guest Information:</h3>
-    <p><strong>First Name:</strong> {{this.first_name}}</p>
-    <p><strong>Last Name:</strong> {{this.last_name}}</p>
-    <p><strong>Phone:</strong> {{this.phone}}</p>
-    <p><strong>Email:</strong> {{this.email}}</p>
-    <p><strong>Check-in:</strong> {{this.checkin}}</p>
-    <p><strong>Check-out:</strong> {{this.checkout}}</p>
+  <h3>Current Guest Information:</h3>
+  <p><strong>First Name:</strong> {{this.first_name}}</p>
+  <p><strong>Last Name:</strong> {{this.last_name}}</p>
+  <p><strong>Phone:</strong> {{this.phone}}</p>
+  <p><strong>Email:</strong> {{this.email}}</p>
+  <p><strong>Check-in:</strong> {{this.checkin}}</p>
+  <p><strong>Check-out:</strong> {{this.checkout}}</p>
+  
+  <form action="/guest/checkout/id/{{this.id}}/?_method=PUT" method="POST">
+    <button type="button" class="btn btn-big btn-secondary btn-lg" id="book-room">Check Out</button>
+  </form>
+
+  <a href="/tables">
+    <button type="button" class="btn btn-big btn-secondary btn-lg" id="reservation">Restaurant Reservation</button>
+  </a>
+
+  <button type="button" class="btn btn-big btn-secondary btn-lg" id="things-nearby">Things Nearby</button>
 {{/each}}
-
-<a href="/checkout">
-  <button type="button" class="btn btn-big btn-secondary btn-lg" id="book-room">Check Out</button>
-</a>
-
-<a href="/tables">
-  <button type="button" class="btn btn-big btn-secondary btn-lg" id="reservation">Restaurant Reservation</button>
-</a>
-
-<button type="button" class="btn btn-big btn-secondary btn-lg" id="things-nearby">Things Nearby</button>

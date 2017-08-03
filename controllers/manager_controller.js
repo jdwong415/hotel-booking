@@ -37,18 +37,6 @@ router.get('/admin/rooms/id/:id', function(req, res) {
   });
 });
 
-router.put("/room/checkin/:id", function(req, res) {
-  db.Room.update({
-    checkin: true
-  }, {
-    where: {
-      id: req.params.id
-    }
-  }).then(function(result) {
-    res.redirect("/admin/rooms/id/" + req.params.id);
-  });
-});
-
 //table view for manager
 router.get('/admin/tables', function(req, res) {
   db.Table.findAll({}).then(function(result) {
@@ -59,9 +47,9 @@ router.get('/admin/tables', function(req, res) {
 });
 
 router.post('/admin/tables-admin', function(req, res) {
-  db.Guest.findAll({
+  db.Table.findAll({
     where: {
-      first_name: req.body.name
+      name: req.body.name
     }
   }).then(function(result) {
     res.json(result);
@@ -80,5 +68,41 @@ router.get('/admin/tables/id/:id', function(req, res) {
   });
 });
 
+router.put("/admin/checkin/id/:id", function(req, res) {
+  db.Room.update({
+    checkin: true
+  }, {
+    where: {
+      id: req.params.id
+    }
+  }).then(function(result) {
+    res.redirect("/admin/rooms/id/" + req.params.id);
+  });
+});
+
+router.put("/admin/checkout/id/:id", function(req, res) {
+  db.Guest.findOne({
+    where: {
+      room_number: req.params.id
+    }
+  }).then(function(result) {
+    db.Room.update({
+      available: true,
+      checkin: false,
+    }, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function(result2) {
+      db.Guest.destroy({
+        where: {
+          id: result.dataValues.id
+        }
+      }).then(function(result3) {
+        res.redirect("/admin/rooms/id/" + result.dataValues.room_number);
+      });
+    });
+  });
+});
 
 module.exports = router;

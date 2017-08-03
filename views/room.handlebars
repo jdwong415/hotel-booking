@@ -16,12 +16,12 @@
     <p><strong>Check-in:</strong> {{this.Guest.checkin}}</p>
     <p><strong>Check-out:</strong> {{this.Guest.checkout}}</p>
     {{#if this.checkin}}
-      <form action="/room/checkout/?_method=DELETE" method="POST">
+      <form action="/admin/checkout/id/{{this.id}}/?_method=PUT" method="POST">
         <button class="btn btn-secondary" type="submit">Check Out</button>
       </form>
     {{/if}}
     {{#unless this.checkin}}
-      <form action="/room/checkin/{{this.id}}/?_method=PUT" method="POST">
+      <form action="/admin/checkin/id/{{this.id}}/?_method=PUT" method="POST">
         <button class="btn btn-secondary" type="submit">Check In</button>
       </form>
     {{/unless}}

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <form id="search-form">
-      <label for="name">Search For Guest:</label>
+      <label for="name">Search For Table Reservation:</label>
       <div class="input-group">
         <input class="form-control" type="text" id="name" name="name">
         <span class="input-group-btn">
@@ -37,3 +37,31 @@
     <p>Reserved</p>
   </div>
 </div>
+
+<script>
+  $("#search-btn").on("click", function() {
+    event.preventDefault();
+    $.post("/admin/tables-admin", $("#search-form").serialize(), function(result) {
+      result.forEach(function(val) {
+        var newDiv = $("<div/>");
+        newDiv.addClass("well");
+        var name = $("<p/>");
+        name.html("<strong>Name:</strong> " + val.name);
+        var phone = $("<p/>");
+        phone.html("<strong>Phone:</strong> " + val.phone);
+        var email = $("<p/>");
+        email.html("<strong>Email:</strong> " + val.email);
+        var res_time = $("<p/>");
+        res_time.html("<strong>Reservation Time:</strong> " + val.res_time);
+        var num_party = $("<p/>");
+        num_party.html("<strong>Number in Party:</strong> " + val.num_party);
+        newDiv.append(name);
+        newDiv.append(phone);
+        newDiv.append(email);
+        newDiv.append(res_time);
+        newDiv.append(num_party);
+        $("#search-tables").append(newDiv);
+      });
+    });
+  });
+</script>
