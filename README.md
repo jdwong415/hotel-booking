@@ -15,4 +15,5 @@ An admin account has already been created on the demo:
 
 ### Demo
 https://fierce-woodland-16916.herokuapp.com
-Manager Portal: https://fierce-woodland-16916.herokuapp.com/admin/login
+<br>
+Manager Portal: https://fierce-woodland-16916.herokuapp.com/admin
