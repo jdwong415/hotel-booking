@@ -59,7 +59,7 @@ router.post("/api/yelp", function(req, res) {
 					rating: yelpResponse[i].rating
 				}
 				results.push(displayData)
-				// console.log("DISPLAY DATA: ", displayData);
+				console.log("DISPLAY DATA: ", displayData);
 				// var handlebarsData = ;
 
 
