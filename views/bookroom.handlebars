@@ -1,3 +1,4 @@
+<div class="container" style="width:50%">
 <form style="padding: 20px;" action="/room/book" method="POST">
   <h2>Book a Room</h2>
   <br>
@@ -43,7 +44,7 @@
     <input type="date" class="form-control mb-2 mr-sm-2 mb-sm-0" id="checkout" name="checkout">
     <p class="validate" id="checkout-validate" style="display:none;">Please select the day you will check out.</p>
   </div>
-  <button type="submit" id="book-room" class="btn btn-med btn-secondary btn-lg" onClick="return empty()">Book</button>
+  <button type="submit" id="book-room" class="btn btn-big btn-secondary btn-lg" onClick="return empty()">Book</button>
 </form>
 
 <div>
@@ -51,6 +52,8 @@
     <button type="submit" id="go-back" class="btn btn-med btn-secondary btn-lg" style="margin-bottom:10px; margin-left:30px;">Back to Home</button>
   </form>
 </div>
+</div>
+
 <script>
   // Prevent empty input
   function empty() {
