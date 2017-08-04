@@ -1,5 +1,6 @@
+<div class="container" style="padding:15px;">
 {{#each tables}}
-  <p><strong>Table #{{this.id}}</strong></p>
+  <h2><strong>Table #{{this.id}}</strong></h2>
 
   {{#if this.available}}
    
@@ -12,4 +13,5 @@
   {{/if}}
 {{/each}}
 <br>
-<a href="/admin/tables"><button class="btn btn-secondary">Go Back</button></a>
+<a href="/admin/tables"><button class="btn btn-default" style="margin-bottom:10px;">Go Back</button></a>
+</div>
