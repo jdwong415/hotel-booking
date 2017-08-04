@@ -13,25 +13,27 @@ module.exports = function(passport) {
   });
 
   passport.deserializeUser(function(id, done) {
-    if (!id.isAdmin) {
-      Guest.findById(id.id).then(function(user) {
-        if (user) {
-          done(null, user.get());
-        }
-        else{
-          done(user.errors, null);
-        }
-      });
-    }
-    else if (id.isAdmin) {
-      Admin.findById(id.id).then(function(user) {
-        if (user) {
-          done(null, user.get());
-        }
-        else{
-          done(user.errors, null);
-        }
-      });
+    if (id) {
+      if (!id.isAdmin) {
+        Guest.findById(id.id).then(function(user) {
+          if (user) {
+            done(null, user.get());
+          }
+          else{
+            done(user.errors, null);
+          }
+        });
+      }
+      else if (id.isAdmin) {
+        Admin.findById(id.id).then(function(user) {
+          if (user) {
+            done(null, user.get());
+          }
+          else{
+            done(user.errors, null);
+          }
+        });
+      }
     }
   });
 
