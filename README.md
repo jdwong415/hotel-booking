@@ -8,7 +8,8 @@ Allows managers to view room availability, current guests, checkin and checkout 
 <br>
 Manager Portal route: `/admin`
 <br>
-Managers need to be signed up to login. An admin account has already been created on the demo.
+Managers need to be signed up to login.<br><br>
+An admin account has already been created on the demo:
 <br>Email: admin@admin.com
 <br>Password: admin
 
