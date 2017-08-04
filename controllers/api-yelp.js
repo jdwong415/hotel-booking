@@ -1,8 +1,13 @@
 // REQUIRED PACKAGES
 	var express = require("express");
 	var router = express.Router();
-	var yelpKeys = require("../config.js");
+	//var yelpKeys = require("../config.js");
 	var yelp = require("yelp-fusion");
+
+	var yelpKeys = {
+	  clientId: 'CaAmGQx0swelr4s6b4oQnw',
+	  clientSecret: '3NdW3VilV867tPCOqNEEea6c5KTpFyZAey0PEa51xgvHeyh7F3aaZh9JfGnmqE7L'
+	};
 
 		console.log("CLIENT ID: ", yelpKeys.clientId);
 		console.log("CLIENT SECRET: ",  yelpKeys.clientSecret);
