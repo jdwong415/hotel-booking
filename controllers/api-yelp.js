@@ -15,7 +15,7 @@
 
 router.get("/yelp", function(req, res) {
 	console.log("YELP API GIT ROUTE SUCCESS");
-	res.render("yelpSearch");
+	res.render("yelpsearch");
 });
 
 
@@ -66,7 +66,7 @@ router.post("/api/yelp", function(req, res) {
 			}// close for loop
 
 			// Render Yelp Results
-			return res.render("yelpSearch", {business: results});
+			return res.render("yelpsearch", {business: results});
 		
 
 
