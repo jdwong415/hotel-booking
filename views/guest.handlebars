@@ -1,5 +1,25 @@
-<button type="button" class="btn btn-primary" id="book-room">Book a Room</button>
+{{#each guest}}
+  <h3>Current Guest Information:</h3>
+  <h4><strong>Room #{{this.room_number}}</strong></h4>
+  <p><strong>First Name:</strong> {{this.first_name}}</p>
+  <p><strong>Last Name:</strong> {{this.last_name}}</p>
+  <p><strong>Phone:</strong> {{this.phone}}</p>
+  <p><strong>Email:</strong> {{this.email}}</p>
+  <p><strong>Check-in:</strong> {{this.checkin}}</p>
+  <p><strong>Check-out:</strong> {{this.checkout}}</p>
+  
+  <form action="/guest/checkout/?_method=PUT" method="POST">
+    <button type="submit" class="btn btn-med btn-secondary btn-lg" id="book-room">Check Out</button>
+  </form>
 
-<button type="button" class="btn btn-primary" id="reservation">Restaurant Reservation</button>
+  <a href="/tables">
+    <button type="button" class="btn btn-med btn-secondary btn-lg" id="reservation">Restaurant Reservation</button>
+  </a>
 
-<button type="button" class="btn btn-primary" id="things-nearby">Things Nearby</button>
+  <button type="button" class="btn btn-med btn-secondary btn-lg" id="things-nearby">Things Nearby</button>
+  <br>
+  <a href="/guest/logout">
+    <button type="button" class="btn btn-med btn-secondary btn-lg" id="reservation">Sign Out</button>
+  </a>
+<div class="row" style="padding-bottom:20px;"></div>
+{{/each}}

@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+		<h2 class="text-center" style="padding: 20px;">Admin Login</h2>
+		<form action="/admin/login" method="POST">
+		  <div class="form-group">
+		    <label for="email">Email address</label>
+		    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+		    <p class="validate" id="email-validate" style="display:none;">Please enter your email.</p>
+		  </div>
+		  <div class="form-group">
+		    <label for="password">Password</label>
+		    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        <p class="validate" id="password-validate" style="display:none;">Please enter your password.</p>
+		  </div>
+		  <button type="submit" class="btn btn-default" onClick="return empty()">Login</button>
+		</form>
+		<br>
+		<label>Need an account? </label>
+		<a href="/admin/signup"><button type="signup" class="btn btn-default">Signup</button></a>
+	</div>
+</div>
+<div class="row" style="padding-bottom:20px;"></div>
+<script>
+  // Prevent empty input
+  function empty() {
+    var email = $("#email").val();
+    var password = $("#password").val();
+    var validate = true;
+
+    if (!email) {
+      $("#email-validate").show();
+      validate = false;
+    }
+    else if (email) {
+      $("#email-validate").hide();
+    }
+    if (!password) {
+      $("#password-validate").show();
+      validate = false;
+    }
+    else if (password) {
+      $("#password-validate").hide();
+    }
+    return validate;
+  }
+</script>

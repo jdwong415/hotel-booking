@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+
+    <h2 class="text-center" style="padding: 20px;">Admin Signup</h2>
+
+    {{!-- LOGIN FORM --}}
+    <form action="/admin/signup" method="POST">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" name="firstname" id="firstname">
+        <p class="validate" id="firstname-validate" style="display:none;">Please enter your first name.</p>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control" name="lastname" id="lastname">
+        <p class="validate" id="lastname-validate" style="display:none;">Please enter your last name.</p>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" id="email">
+        <p class="validate" id="email-validate" style="display:none;">Please enter your email.</p>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password" id="password">
+        <p class="validate" id="password-validate" style="display:none;">Please enter your password.</p>
+      </div>
+      <button type="submit" class="btn btn-default" onClick="return empty()">Signup</button>
+    </form>
+    <br>
+    <label>Already have an account? </label>
+    <a href="/admin/login"><button type="signup" class="btn btn-default">Login</button></a>
+  </div>
+</div>
+<div class="row" style="padding-bottom:20px;"></div>
+<script>
+  // Prevent empty input
+  function empty() {
+    var firstname = $("#firstname").val();
+    var lastname = $("#lastname").val();
+    var email = $("#email").val();
+    var password = $("#password").val();
+    var validate = true;
+
+    if (!firstname) {
+      $("#firstname-validate").show();
+      validate = false;
+    }
+    else if (firstname) {
+      $("#firstname-validate").hide();
+    }
+    if (!lastname) {
+      $("#lastname-validate").show();
+      validate = false;
+    }
+    else if (lastname) {
+      $("#lastname-validate").hide();
+    }
+    if (!email) {
+      $("#email-validate").show();
+      validate = false;
+    }
+    else if (email) {
+      $("#email-validate").hide();
+    }
+    if (!password) {
+      $("#password-validate").show();
+      validate = false;
+    }
+    else if (password) {
+      $("#password-validate").hide();
+    }
+    return validate;
+  }
+</script>

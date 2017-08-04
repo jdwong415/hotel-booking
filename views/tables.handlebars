@@ -1,19 +1,137 @@
-<h1>All Rooms</h1>
+<div class="container">
+  <div style="margin-right: 25px; margin-top: 25px;">
+      <h2 class="text-center"><img style="height: 120px" src="assets/img/og-favicon.png"> Chez Jerome</h1><br>
+      <h4 class="text-center">Bienvenue, et bon apetit!</h2>
+      <hr>
+      <h4 class="text-center">We have limited tables! Please make your reservation well in advance.</h2>
+      <br>
+  </div>
 
-<ul class="list-unstyled">
-  {{#each table}}
-  	<li>
-  		<p><span class="label">Table id:</span> {{this.id}}</p>
-    	<p><span class="label">Booked at </span> {{this.timestamp}}</p>
-      <p><span class="label">Party of </span> {{this.party_number}}</p>
-
-		{{!-- Form should send a delete command to the server --}}
-		<form>
-		<input type="hidden" name="id" value="{{this.id}}">
-		<button type="submit">Delete this table</button>
-		</form>
-
-      <a href="/{{this.id}}">Update this table</a>
-  	</li>
-  {{/each}}
-</ul>
+  {{!--adding a reservation --}}
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <form class="create-update-form" action="/tables" method="POST">
+      {{!-- section to add tables --}}
+      <div class="form-group col-xs-4">
+        <label for="res-name">Name</label>
+        <input type="text" class="form-control" id="res-name" name="name" placeholder="Name">
+        <p class="validate" id="name-validate" style="display:none;">Please enter your name.</p>
+      </div>
+      <div class="form-group col-xs-4">
+        <label for="res-phone">Phone Number</label>
+        <input type="tel" class="form-control" id="res-phone" name="phone" placeholder="Phone Number">
+        <p class="validate" id="phone-validate" style="display:none;">Please enter your phone number.</p>
+      </div>
+      <div class="form-group col-xs-4">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="res-email" name="email" placeholder="Email">
+        <p class="validate" id="email-validate" style="display:none;">Please enter your email.</p>
+      </div>
+      <div class="form-group col-xs-4">
+        <label for="res-time">Reservation Time</label>
+        <input type="time" class="form-control" id="res-time" name="res_time" placeholder="07:30PM">
+        <p class="validate" id="res-time-validate" style="display:none;">Please enter a reservation time. (hhmm)</p>
+      </div>
+      <div class="form-group col-xs-4">
+        <label for="res-number">Number in Party</label>
+        <input type="number" class="form-control" id="res-number" name="num_party" placeholder="Number in Party">
+        <p class="validate" id="num-party-validate" style="display:none;">Please enter number in party.</p>
+      </div>
+      <button type="submit" class="btn btn-med btn-secondary btn-lg" onClick="return empty()">Submit</button>
+      </form> <br>
+    </div>
+  </div>
+  <div class = "row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel-panel default">
+        <ul class="list-group">
+        {{#each tables}}
+          {{#if this.available}}
+          <li class="list-group-item">
+            <div class="input-group">
+              <p class="lead">Your Reservation has been confirmed. <br>
+              Your table # is {{this.id}} <br>
+              Name: {{this.name}} <br>
+              Number in Party: {{this.num_party}} <br>
+              Reservation Time: {{this.res_time}}</p>
+              <form action="/tables/{{this.id}}?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-big btn-secondary btn-lg" id="trash">Cancel Resv<span class="  glyphicon glyphicon-trash"></span></button>
+            </form>
+            </div>
+          </li>
+          {{/if}}
+        {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+    {{#each tables}}
+        {{#if this.available}}
+          <div class="room-reserved">{{this.id}}</div>
+        {{/if}} 
+    {{/each}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="sm-room-available"></div>
+      <p>Available</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="sm-room-reserved"></div>
+      <p>Reserved</p>
+    </div>
+    <footer class="footer"></footer>
+  </div>
+</div>
+<script>
+  // Prevent empty input
+  function empty() {
+    var email = $("#res-email").val();
+    var phone = $("#res-phone").val();
+    var name = $("#res-name").val();
+    var number = $("#res-number").val();
+    var time = $("#res-time").val();
+    var validate = true;
+    if (!email) {
+      $("#email-validate").show();
+      validate = false;
+    }
+    else if (email) {
+      $("#email-validate").hide();
+    }
+    if (!name) {
+      $("#name-validate").show();
+      validate = false;
+    }
+    else if (name) {
+      $("#name-validate").hide();
+    }
+    if (!phone) {
+      $("#phone-validate").show();
+      validate = false;
+    }
+    else if (phone) {
+      $("#phone-validate").hide();
+    }
+    if (!time) {
+      $("#res-time-validate").show();
+      validate = false;
+    }
+    else if (time) {
+      $("#res-time-validate").hide();
+    }
+    if (!number) {
+      $("#num-party-validate").show();
+      validate = false;
+    }
+    else if (number) {
+      $("#num-party-validate").hide();
+    }
+    return validate;
+  }
+</script>

@@ -25,12 +25,28 @@ module.exports = function(sequelize, DataTypes) {
     room_number: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    checkin: {
+      type: DataTypes.DATEONLY
+    },
+    checkout: {
+      type: DataTypes.DATEONLY
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
+  }, {
+    getterMethods: {
+      isAdmin: function() {
+        return this.getDataValue('isAdmin');
+      }
     }
   });
 
   Guest.associate = function(models) {
     Guest.hasOne(models.Room);
-    Guest.hasOne(models.Restaurant);
+    Guest.hasOne(models.Table);
   }
 
   return Guest;

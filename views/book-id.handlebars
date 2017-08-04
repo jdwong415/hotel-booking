@@ -1,19 +1,8 @@
-<div class="container" style="width:50%">
-<form style="padding: 20px;" action="/room/book" method="POST">
-  <h2>Book a Room</h2>
-  <br>
-  <div class="form-group">
-    <label class="mr-sm-2" for="room">Room Number: </label>
-    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="room" name="room" required>
-      <option value="" disabled selected hidden>Choose a room</option>
-      {{#each rooms}}
-        {{#if this.available}}
-          <option value="{{this.id}}">{{this.id}}</option>
-        {{/if}}
-      {{/each}}
-    </select>
-    <p class="validate" id="room-validate" style="display:none;">Please select a room number.</p>
-  </div>
+<form style="padding: 20px;" action="/admin/book/id/:id" method="POST">
+  {{#each rooms}}
+    <label class="mr-sm-2" for="room"><h2>Booking Room Number #{{this.id}}</h2></label>
+    <input type="hidden" name="room" value="{{this.id}}">
+  {{/each}}
   <div class="form-group">
     <label class="mr-sm-2" for="firstname">First Name:</label>
     <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstname" name="firstname" placeholder="First Name">
@@ -49,15 +38,12 @@
 
 <div>
   <form action="/" method="GET">
-    <button type="submit" id="go-back" class="btn btn-med btn-secondary btn-lg" style="margin-bottom:10px; margin-left:30px;">Back to Home</button>
+    <button type="submit" id="go-back">Back to Home</button>
   </form>
 </div>
-</div>
-
 <script>
   // Prevent empty input
   function empty() {
-    var room = $("#room").val();
     var firstname = $("#firstname").val();
     var lastname = $("#lastname").val();
     var phone = $("#phone").val();
@@ -107,13 +93,6 @@
     }
     else if (checkout) {
       $("#checkout-validate").hide();
-    }
-    if (!room) {
-      $("#room-validate").show();
-      validate = false;
-    }
-    else if (room) {
-      $("#room-validate").hide();
     }
     return validate;
   }

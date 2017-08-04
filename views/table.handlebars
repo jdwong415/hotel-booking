@@ -1,0 +1,15 @@
+{{#each tables}}
+  <p><strong>Table #{{this.id}}</strong></p>
+
+  {{#if this.available}}
+   
+    <h3>Current Table Information:</h3>
+    <p><strong>Name:</strong> {{this.name}}</p>
+    <p><strong>Phone:</strong> {{this.phone}}</p>
+    <p><strong>Email:</strong> {{this.email}}</p>
+    <p><strong>Party Size:</strong> {{this.num_party}}</p>
+    <p><strong>Reservation Time:</strong> {{this.res_time}}</p>
+  {{/if}}
+{{/each}}
+<br>
+<a href="/admin/tables"><button class="btn btn-secondary">Go Back</button></a>

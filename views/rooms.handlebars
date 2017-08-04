@@ -1,37 +1,44 @@
-<h1>All Rooms</h1>
+<div class="row">
+  <div class="col-md-12">
+    <form id="search-form">
+      <label for="name">Search For Guest:</label>
+      <div class="input-group">
+        <input class="form-control" type="text" id="name" name="name">
+        <span class="input-group-btn">
+          <button class="btn btn-default" id="search-btn" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div id="search-rooms"></div>
+  </div>
+</div>
 
-{{!-- <ul class="list-unstyled">
-  {{#each rooms}}
-  	<li>
-  		<p>Room: {{this.id}}</p>
-    	<p>Available: {{this.available}}</p> --}}
-
-		{{!-- Form should send a delete command to the server --}}
-		{{!-- <form>
-		<input type="hidden" name="id" value="{{this.id}}">
-		<button type="submit">Delete this room</button>
-		</form>
-
-      <a href="/{{this.id}}">Update this room</a> --}}
-  	{{!-- </li>
-  {{/each}}
-</ul> --}}
+<h1 style="color: #03122B;">All Rooms</h1>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-12" id="rooms-div">
 	{{#each rooms}}
-		<a href="/admin/rooms/{{this.id}}">
+		<a href="/admin/rooms/id/{{this.id}}">
 			{{#if this.available}}
-				<div class="room-available">{{this.id}}</div>
+			  <div class="room-available">{{this.id}}</div>
 			{{/if}}
 			{{#unless this.available}}
-				<div class="room-occupied">{{this.id}}</div>
+        {{#unless this.checkin}}
+          <div class="room-reserved">{{this.id}}</div>
+        {{/unless}}
+        {{#if this.checkin}}
+          <div class="room-occupied">{{this.id}}</div>
+        {{/if}}
 			{{/unless}}
 		</a>
 	{{/each}}
 	</div>
 </div>
-<div class="row div-legend">
+<div class="row">
 	<div class="col-md-12">
 		<div class="sm-room-available"></div>
 		<p>Available</p>
@@ -43,3 +50,45 @@
 		<p>Occupied</p>
 	</div>
 </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="sm-room-reserved"></div>
+    <p>Reserved</p>
+  </div>
+</div>
+<a href="/admin/menu"><button type="back" class="btn btn-default">Manager Menu</button></a></p>
+<div class="row" style="padding-bottom:20px;"></div>
+
+<script>
+  $("#search-btn").on("click", function() {
+    event.preventDefault();
+    $.post("/admin/rooms", $("#search-form").serialize(), function(result) {
+      result.forEach(function(val) {
+        var newDiv = $("<div/>");
+        newDiv.addClass("well");
+        var roomNumber = $("<p/>");
+        roomNumber.html("<strong>Room #" + val.room_number + "</strong>");
+        var firstName = $("<p/>");
+        firstName.html("<strong>First Name:</strong> " + val.first_name);
+        var lastName = $("<p/>");
+        lastName.html("<strong>Last Name:</strong> " + val.last_name);
+        var phone = $("<p/>");
+        phone.html("<strong>Phone:</strong> " + val.phone);
+        var email = $("<p/>");
+        email.html("<strong>Email:</strong> " + val.email);
+        var checkin = $("<p/>");
+        checkin.html("<strong>Check-in:</strong> " + val.checkin);
+        var checkout = $("<p/>");
+        checkout.html("<strong>Check-out:</strong> " + val.checkout);
+        newDiv.append(roomNumber);
+        newDiv.append(firstName);
+        newDiv.append(lastName);
+        newDiv.append(phone);
+        newDiv.append(email);
+        newDiv.append(checkin);
+        newDiv.append(checkout);
+        $("#search-rooms").append(newDiv);
+      });
+    });
+  });
+</script>
