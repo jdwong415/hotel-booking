@@ -24,7 +24,7 @@ app.use(require('./controllers/index_controller'));
 app.use(require('./controllers/guest_controller'));
 app.use(require('./controllers/manager_controller'));
 app.use(require('./controllers/restaurant_controller'));
-app.use(require('./controllers/yelp_controller'));
+app.use(require('./controllers/api-yelp'));
 app.use(require('./controllers/table_controller'));
 
 // Sync models then start the server to begin listening
