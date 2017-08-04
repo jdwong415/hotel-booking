@@ -1,15 +1,12 @@
 <div class="container">
-  <div class="jumbotron" style="margin-right: 25px; margin-top: 25px;">
-    <h1 class="text-center"><img style="height: 120px" src="assets/img/og-favicon.png"> Chez Jerome</h1><br>
-    <h2 class="text-center">Bienvenue, et bon apetit!</h2>
-    <hr>
-    <h2 class="text-center">We have limited tables! Please make your reservation well in advance.</h2>
-    <br>
-    <div class="text-center">
-      <a href="/tables"><button type="button" class="btn btn-med btn-secondary btn-lg"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
-      <a href="/tables/"><button type="button" class="btn btn-med btn-secondary btn-lg"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
-    </div>
+  <div style="margin-right: 25px; margin-top: 25px;">
+      <h2 class="text-center"><img style="height: 120px" src="assets/img/og-favicon.png"> Chez Jerome</h1><br>
+      <h4 class="text-center">Bienvenue, et bon apetit!</h2>
+      <hr>
+      <h4 class="text-center">We have limited tables! Please make your reservation well in advance.</h2>
+      <br>
   </div>
+
   {{!--adding a reservation --}}
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -40,7 +37,7 @@
         <input type="number" class="form-control" id="res-number" name="num_party" placeholder="Number in Party">
         <p class="validate" id="num-party-validate" style="display:none;">Please enter number in party.</p>
       </div>
-      <button type="submit" class="btn btn-big btn-secondary btn-lg" onClick="return empty()">Submit</button>
+      <button type="submit" class="btn btn-med btn-secondary btn-lg" onClick="return empty()">Submit</button>
       </form> <br>
     </div>
   </div>
