@@ -100,11 +100,11 @@ label {
   letter-spacing: 1px;
   text-transform: uppercase;
   background-color: #03122B;
-  margin: 5px;
+  margin: 10px;
 }
 
 .btn-med:hover {
-	color: red;
+	color: #E5E0CC;
 }
  
 .btn:focus, .btn:active:focus, .btn.active:focus {
