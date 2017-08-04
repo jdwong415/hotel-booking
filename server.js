@@ -34,6 +34,7 @@ app.use(express.static('public'));
 // Load routes
 app.use(require('./controllers/index_controller'));
 app.use(require('./controllers/guest_controller'));
+app.use(require('./controllers/api-yelp'));
 app.use(require('./controllers/table_controller'));
 
 require('./controllers/guest_auth_controller')(app, passport);
@@ -47,6 +48,7 @@ app.use('/', function(req, res) {
 // Sync models then start the server to begin listening
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
+  	console.log("----------------------");
     console.log("App listening on PORT " + PORT);
   });
 });
