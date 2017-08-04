@@ -8,32 +8,27 @@ module.exports = function(passport) {
   var Admin = db.Manager;
 
   passport.serializeUser(function(user, done) {
-    var isAdmin = user.isAdmin === 0 || user.isAdmin === 1;
-    return done(null, { id: user.id, isAdmin: isAdmin });
+    return done(null, { id: user.id, isAdmin: user.isAdmin });
   });
 
   passport.deserializeUser(function(id, done) {
-    if (id) {
-      if (!id.isAdmin) {
-        Guest.findById(id.id).then(function(user) {
-          if (user) {
-            done(null, user.get());
-          }
-          else{
-            done(user.errors, null);
-          }
-        });
-      }
-      else if (id.isAdmin) {
-        Admin.findById(id.id).then(function(user) {
-          if (user) {
-            done(null, user.get());
-          }
-          else{
-            done(user.errors, null);
-          }
-        });
-      }
+    if (!id.isAdmin) {
+      Guest.findById(id.id).then(function(user) {
+        if (user) {
+          done(null, user.get());
+        }
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+    else if (id.isAdmin) {
+      Admin.findById(id.id).then(function(user) {
+        if (user) {
+          done(null, user.get());
+        }
+      }).catch(function (err) {
+        console.log(err);
+      });
     }
   });
 
